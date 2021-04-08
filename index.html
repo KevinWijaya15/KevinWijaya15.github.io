@@ -1,4 +1,47 @@
+<!DOCTYPE html>
+<html> 
+ <head>
+    <title>Knife Hit</title> 
+</head>
+ <body>
+     <h1 align "center">Knife Dash by Kevin</h1>
+    <p align = "center"> 
+      <canvas id="mycanvas"></canvas> 
+    </p>
+     
+    <p> <a href = "https://www.khanacademy.org/computer-programming/knife-dash-game/4508896652640256">Click here</a> to view original project on Khan Academy. </
+ </body>
+ 
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+    var sketchProc = function(processingInstance) {
+     with (processingInstance) {
+        size(400, 600); 
+        frameRate(30);
 
+var degrees_to_rad = function(degrees) {
+    return degrees * (Math.PI/180);
+};
+
+var mouseIsPressed = false;
+
+var currentScene = 3;
+
+var lose = false;
+var restart = true;
+var gameSpeed = 5; //5 (factor of 360)
+var score = 0;
+    var highscore = 0;
+
+var soundOn = true;
+
+var button = function(config) {
+    this.x = config.x;
+    this.y = config.y || 470;
+    this.w = config.w || 105;
+    this.h = config.h || 115;
+    this.shape = config.shape || "rect";
 
     this.messageSize = config.messageSize || 30; //MAIN BUTTON ANIMATION
     this.edge  = 20;
