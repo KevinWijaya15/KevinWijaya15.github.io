@@ -1,0 +1,1046 @@
+
+
+    this.messageSize = config.messageSize || 30; //MAIN BUTTON ANIMATION
+    this.edge  = 20;
+
+    this.sz = config.sz; //MENU AND POP UP BUTTONS ANIMATION
+};
+
+    var playButton = new button({x: 125, y: 400, w: 150, h: 65}); //HOME SCENE
+    var soundButton = new button({x: 50, sz: 0.75});
+    var htpButton = new button({x: 155, w: 90, sz: 55});
+    var leaderButton = new button({x: 245, sz: 1});
+
+    var closeButton = new button({x: 350, y: 110, w: 50, h: 50, shape: "ellipse", sz: 35}); //POP UP
+    
+    var restartButton = new button({x: 125, y: 300, w: 150, h: 65, messageSize: 22}); //LOSE SCENE
+    var homeButton = new button({x: 10, y: 5, w: 150, h: 60});
+
+    var anmPos = {
+        downLane: [playButton.x, playButton.y + playButton.h],
+        upLane: [playButton.y + playButton.h, playButton.x],
+        
+        homeLine: 40
+    };
+    var scenePos = {
+        home: [-320, 320],
+        lose: [-260, 260]
+    };
+
+    button.prototype.isMouseInside = function() {
+        if (this.shape === "rect") {
+            return mouseX >= this.x && mouseX <=this.x + this.w && mouseY >= this.y && mouseY <= this.y + this.h;
+        } else {
+            return this.w/2 >= dist(mouseX, mouseY, this.x, this.y);
+        }
+    };
+    button.prototype.anmMain = function() {
+        //ANIMATE
+        if (this.isMouseInside()) {
+            if (scenePos.home[0] === 0 || scenePos.lose[0] === 0) {
+                if (anmPos.downLane[0] < this.x + this.w) { anmPos.downLane[0] += 5; } //DOWN LANE
+                else { anmPos.downLane[0] = this.x + this.w ; }
+
+                if (anmPos.downLane[0] === this.x + this.w) { 
+                    if (anmPos.downLane[1] > this.y) { anmPos.downLane[1] -= 5; }
+                    else { anmPos.downLane[1] = this.y; }
+                }
+
+                if (anmPos.upLane[0] > this.y) { anmPos.upLane[0] -= 5; } //UP LANE
+                else { anmPos.upLane[0] = this.y; }
+
+                if (anmPos.upLane[0] === this.y) { 
+                    if (anmPos.upLane[1] < this.x + this.w) { anmPos.upLane[1] += 5; }
+                    else { anmPos.upLane[1] = this.x + this.w; } 
+                }
+            }
+        } else {
+            if (anmPos.downLane[1] < this.y + this.h) { anmPos.downLane[1] += 5; } //DOWN LANE
+            else { anmPos.downLane[1] = this.y + this.h; }
+
+            if (anmPos.downLane[1] === this.y + this.h) {
+                if (anmPos.downLane[0] > this.x) { anmPos.downLane[0] -= 5; }
+                else { anmPos.downLane[0] = this.x; }
+            }
+
+            if (anmPos.upLane[1] > this.x) { anmPos.upLane[1] -= 5; }
+            else { anmPos.upLane[1] = this.x; }
+
+            if (anmPos.upLane[1] === this.x) {
+                if (anmPos.upLane[0] < this.y + this.h) { anmPos.upLane[0] += 5; }
+                else { anmPos.upLane[0] = this.y + this.h; }
+            }
+        }
+
+        //DRAW
+            stroke(131, 255, 110); strokeWeight(5);
+        if (this.isMouseInside() || !this.isMouseInside() && anmPos.downLane[0] > this.x && anmPos.upLane[0] < this.y + this.h) { line(this.x, this.y + this.h, anmPos.downLane[0], this.y + this.h); } //DOWN LANE
+        if (anmPos.downLane[0] >= this.x + this.w) {  line(this.x + this.w, this.y + this.h, this.x + this.w, anmPos.downLane[1]); }
+
+        if (this.isMouseInside() || !this.isMouseInside() && anmPos.downLane[0] > this.x && anmPos.upLane[0] < this.y + this.h) { line(this.x, this.y + this.h, this.x, anmPos.upLane[0]); } //UP LANE
+        if (anmPos.upLane[0] <= this.y) { line(anmPos.upLane[1], this.y, this.x, this.y); } 
+    };
+    button.prototype.main = function(message) {
+        //ANIMATE
+        if (this.isMouseInside()) { 
+            if (message === "PLAY") { if (this.messageSize < 33) { this.messageSize += 0.75; } }
+            else if (message === "RESTART") { if (this.messageSize < 25) { this.messageSize += 0.5; } }
+
+            if (this.edge > 0) { this.edge -= 0.5; }
+        } else { 
+            if (message === "PLAY") { if (this.messageSize > 30) { this.messageSize -= 0.75; } }
+            else if (message === "RESTART") { if (this.messageSize > 22) { this.messageSize -= 0.5; } }
+
+            if (this.edge < 20) { this.edge += 0.5; }
+        }
+
+        //DRAW
+            if (this.isMouseInside()) { fill(41, 163, 24); }
+            else { fill(55, 186, 37); }
+            
+            rectMode(CORNER); noStroke();
+        rect(this.x, this.y, this.w, this.h, this.edge); 
+ 
+            fill(255, 255, 255); textFont(createFont("sans-serif Bold"), this.messageSize); textAlign(CENTER, CENTER);
+        text(message, this.x + this.w/2, this.y + this.h/2);
+
+        this.anmMain();
+    };
+    button.prototype.menu = function(elmName) {
+        if (this.isMouseInside()) { fill(202, 240, 252); }
+        else { fill(158, 202, 217); } 
+
+        if (elmName === "sound") {
+            if (this.isMouseInside()) { if (this.sz < 1) { this.sz += 0.05; } }
+            else { if (this.sz > 0.75) { this.sz -= 0.05; } }
+
+            pushMatrix();
+
+            if (this.isMouseInside()) { translate(87, this.y + 42); }
+            else { translate(90, this.y + 46); } 
+
+            scale(this.sz);
+
+            //SPEAKER
+                noStroke();
+            rect(0, 0, 40, 26);
+            triangle(15, 3, 40, 3, 40, -13);
+            triangle(15, 23, 40, 23, 40, 43);
+
+            //SOUND WAVES
+            for (var i = 0; i < 2; i++) {
+                    textSize(25 * (i + 1)); textFont(createFont("sans-serif"));
+                text(")", 50 + 10 * i, 10);
+            }
+
+            //MUTE
+            if (!soundOn) { 
+                    if (this.isMouseInside()) { stroke(202, 240, 252); }
+                    else { stroke(158, 202, 217); } 
+                    
+                    strokeWeight(5);
+                line(-10, -10, 75, 45);
+            }
+
+            popMatrix();
+        } 
+        else if (elmName === "htp") { 
+            if (this.isMouseInside()) { if (this.sz < 75) { this.sz += 5; } }
+            else { if (this.sz > 55) { this.sz -= 5; } }
+
+                textFont(createFont("sans-serif Bold"), this.sz); textAlign(CENTER, CENTER);
+            text("?", 200, this.y + this.h/2);
+        } 
+        else if (elmName === "leaderboard") {
+            if (this.isMouseInside()) { if (this.sz < 1.25) { this.sz += 0.05; } }
+            else { if (this.sz > 1) { this.sz -= 0.05; } }
+            
+            pushMatrix();
+
+            if (this.isMouseInside()) { translate(800/3, this.y + 44); }
+            else { translate(800/3, this.y + 48); }
+            
+            scale(this.sz);
+
+            //STAIRS
+                noStroke();
+            rect(-5, 1, 20, 34);
+            rect(14, -10, 20, 45);
+            rect(33, 9, 20, 26);
+
+            //NUMBERS
+                fill(28, 74, 62); textFont(createFont("fantasy Bold"), 14); textAlign(CENTER, CENTER);
+            text("1", 23, 0); text("2",4 , 11); text("3", 42, 19);
+
+            popMatrix();
+        }
+    };
+    button.prototype.popUp = function() {
+        //ANIMATE
+        if (this.isMouseInside()) { if (this.sz < 50) { this.sz += 3; } }
+        else { if (this.sz > 35) { this.sz -= 3; } }
+
+        //DRAW
+            if (this.isMouseInside()) { fill(50, 50, 50); }
+            else { fill(0, 0, 0);  }
+            textAlign(CENTER, CENTER); textFont(createFont("sans-serif Bold"), this.sz);
+        text("x", this.x, this.y - 2);
+    };
+    button.prototype.home = function() {
+        //DRAW
+            if (this.isMouseInside()) { fill(255, 183, 51); }
+            else { fill(255, 165, 0); } 
+            
+            textAlign(CENTER, CENTER); textFont(createFont("fantasy"), 30);
+        text("HOME", this.x + 75, this.y + this.h/2);
+
+            noStroke();
+        triangle(this.x + 10, this.y + this.h/2, this.x + 30, this.y + 15, this.x + 30, this.y + this.h - 15);
+        
+        //ANIMATE LINE
+        if (this.isMouseInside()) {
+            if (anmPos.homeLine < 110) { anmPos.homeLine += 5; }
+            else { anmPos.homeLine = 110; }     
+        } else { 
+            if (anmPos.homeLine > 40) { anmPos.homeLine -= 7; }
+            else { anmPos.homeLine = 40; }
+        }
+
+            stroke(255); strokeWeight(2);
+        if (this.isMouseInside() || anmPos.homeLine !== 40) { line(this.x + 40, this.y + 50, this.x + anmPos.homeLine, this.y + 50); }
+    };
+
+var bg =  {
+    playOp: 25
+};
+
+    var drawBg = function() {        
+        //MAIN
+            fill(35, 83, 71); noStroke(); rectMode(CORNER);
+        rect(0, 0, width, height);
+
+        //RECTS
+        var w = [30, 10, 25, 30, 45, 30, 40, 15, 20];
+
+        fill(28, 74, 62);   
+
+        for (var x = 0; x < 400; x += 45) {  
+            rect(x, 0, w[x/45], height);
+        }
+
+        //TRIANGLES
+        triangle(55, 0, 55, height, 70, 0);
+        triangle(90, 0, 90, height, 65, height);
+        triangle(335, 0, 345, height, 355, 0);
+        triangle(335, height, 355, height, 345, 320);
+        triangle(385, 0, 400, 0 , 400, height);
+    };
+    var drawCover = function() {
+        if (bg.playOp > 0) { bg.playOp -= 10; }
+        else { bg.playOp = 0; }
+
+            fill(255, 255, 255, bg.playOp); noStroke();
+        rect(0, 0, width, height);
+    };
+
+var titleElm = function(config) {
+    this.x = config.x || 200;
+    this.y = config.y || 100;
+    this.size = config.size || 1;
+    this.angle = config.angle || 345;
+    this.message = config.message;
+};
+    var ttlSpeed = [-0.55, 0.45];
+    var popUpSpeed = [0.5, 0.5];
+
+    var firstLine = [new titleElm({message: "K", x: 80, y: 120, size: 0.5}), new titleElm({message: "N", x: 155, y: 105, angle: 352, size: 0.3}), new titleElm({message: "I", x: 217, angle: 360, size: 0.1}), new titleElm({message: "F", x: 270, y: 105, angle: 8, size: -0.1}), new titleElm({message: "E", x: 325, y: 120, angle: 15, size: -0.3})];
+    var secondLine = [new titleElm({message: "D", x: 120, y: 275, size: 0.25, angle: 345}), new titleElm({message: "A", x: 170, y: 265, size: 0.15, angle: 355}), new titleElm({message: "S", x: 220, y: 265, size: 0.05, angle: 5}), new titleElm({message: "H", x: 270, y: 275, size: -0.05, angle: 15})];
+    var htpTtl = [new titleElm({message: "H", x: 145, y: 160, size: 0.3, angle: 350}), new titleElm({message: "O", x: 195, y: 155, size: 0.1, angle: 360}), new titleElm({message: "W", x: 255, y: 160, size: -0.1, angle: 10})];
+    var leadTtl = [new titleElm({message: "L", x: 122, y: 142, size: 0.5}), new titleElm({message: "E", x: 167, y: 135, size: 0.3, angle: 355}), new titleElm({message: "A", x: 220, y: 135, angle: 5, size: 0.1}), new titleElm({message: "D", x: 272, y: 142, size: -0.1, angle: 15})];
+
+    titleElm.prototype.isMouseInside = function() {
+        return mouseX >= this.x - 30 && mouseX <= this.x - 30 + 55 && mouseY >= this.y - 50 && mouseY <= this.y - 50 + 100; 
+    };
+    titleElm.prototype.anm = function(sizeUp, sizeDown) {
+        if (this.isMouseInside()) {
+            if (this.size > sizeDown) { this.size -= 0.06; }
+            else { this.size = sizeDown; }
+        } else {
+            if (this.size < sizeUp) { this.size += 0.035; }
+            else { this.size = sizeUp; }
+        }
+    };
+    titleElm.prototype.draw = function(clr, shdClr, anmClr, sizeUp, sizeDown) {
+        this.anm(sizeUp, sizeDown);
+
+        pushMatrix();
+        translate(this.x, this.y);
+        rotate(degrees_to_rad(this.angle));
+        scale(this.size);
+
+            noStroke(); fill(shdClr); textFont(createFont("fantasy"), 120); textAlign(CENTER, CENTER);
+        text(this.message, 2, 7); //shadow
+
+            if (this.isMouseInside()) { fill(anmClr); }
+            else { fill(clr);  }
+            
+        text(this.message, 0, 0); //main
+
+        popMatrix();
+    };
+    var anmTitle = function() {
+        //FIRST LINE
+        for (var i = 0; i < firstLine.length; i++) {
+            firstLine[i].x += ttlSpeed[0];
+
+            if (firstLine[0].x < 70) { ttlSpeed[0] = 0.55; }
+            if (firstLine[0].x > 85) { ttlSpeed[0] = -0.55; }
+        }
+        
+        //SECOND LINE
+        for (var i = 0; i < secondLine.length; i++) {
+            secondLine[i].x += ttlSpeed[1];
+
+            if (secondLine[0].x > 125) { ttlSpeed[1] = -0.45; }
+            if (secondLine[0].x < 115) { ttlSpeed[1] = 0.45; }
+        }
+    };
+    
+    //ADDITONAL TITLES
+    var knifeLight = function(x,y,sx,sy,r){
+        pushMatrix();
+        pushStyle();
+        translate(x,y); scale(sx,sy); rotate(degrees_to_rad(r));
+        fill(255, 255, 255); noStroke();
+        beginShape();
+        curveVertex(-69,-48); curveVertex(109,-72); curveVertex(97,-40); curveVertex(97,-15); curveVertex(-47,-21); curveVertex(-178,-9); curveVertex(-69,-48); curveVertex(109,-72); curveVertex(97,-40);
+        endShape();
+        popStyle();
+        popMatrix();
+    };
+        var moveRect = {
+            angle: 180,
+            size: 13
+        };
+    var highestTxt = function() {
+        //TEXT
+            fill(255, 255, 255); textAlign(CENTER, CENTER); textFont(createFont("cursive Bold"), 17);
+        text("STAGE " + stage.highest + "      " + "SCORE " + highscore, 200, 350);
+
+        //IMAGE
+        pushMatrix();
+        translate(200, 350);
+        rotate(degrees_to_rad(moveRect.angle));
+
+            rectMode(CENTER);
+        rect(0, 0, moveRect.size, moveRect.size);
+
+        popMatrix();
+
+        //ANIMATE
+        if (mouseX >= 200 - 13/2 && mouseX  <= 200 + 13/2 && mouseY >= 350 - 13/2 && mouseY <= 350 + 13/2) { moveRect.angle += 10; } //ROTATE
+        else { moveRect.angle += 4; }
+
+        if (moveRect.angle >= 360) { moveRect.angle = 0; }
+
+        if (mouseX >= 200 - 13/2 && mouseX  <= 200 + 13/2 && mouseY >= 350 - 13/2 && mouseY <= 350 + 13/2) { if (moveRect.size < 17) { moveRect.size ++; } } //ENLARGE
+        else { if (moveRect.size > 13) { moveRect.size--;} }
+    };
+
+var popUp = {
+    htp: {
+        size: 0,
+        open: false
+    },
+    lead: { 
+        size: 0, 
+        open: false
+    },
+    coverOp: [0, 0]
+};
+
+    var anmPopUp = function(elmName) {
+        //COVER
+        if (elmName === "htp") { 
+            if (popUp.htp.open) { if (popUp.coverOp[0] < 80) { popUp.coverOp[0] += 2; } }
+            else { if (popUp.coverOp[0] > 0) { popUp.coverOp[0] -= 5; } }
+        } else if (elmName === "lead") {
+            if (popUp.lead.open) { if (popUp.coverOp[1] < 80) { popUp.coverOp[1] += 2; } }
+            else { if (popUp.coverOp[1] > 0) { popUp.coverOp[1] -= 5; } }
+        }
+        
+
+        //MAIN
+        if (elmName === "htp") {
+            if (popUp.htp.open) { 
+                if (popUp.htp.size < 0.75) { popUp.htp.size += 0.06; }
+                if (popUp.htp.size >= 0.75 && popUp.htp.size < 1) { popUp.htp.size += 0.055; }
+                if (popUp.htp.size >= 1) { popUp.htp.size = 1; }
+            } else { 
+                if (popUp.htp.size > 0) { popUp.htp.size -= 0.07; }
+                else { popUp.htp.size = 0; }
+            }
+        } else if (elmName === "lead") { 
+            if (popUp.lead.open) { 
+                if (popUp.lead.size < 0.75) { popUp.lead.size += 0.06; }
+                if (popUp.lead.size >= 0.75 && popUp.lead.size < 1) { popUp.lead.size += 0.055; }
+                if (popUp.lead.size >= 1) { popUp.lead.size = 1; }
+            } else { 
+                if (popUp.lead.size > 0) { popUp.lead.size -= 0.07; }
+                else { popUp.lead.size = 0; }
+            }
+        }
+
+        //RESET VARIABLE
+        if (!popUp.htp.open && popUp.htp.size < 0.9) {
+            htpTtl[0].size = 0.3; htpTtl[1].size = 0.1; htpTtl[2].size = -0.1;
+        }
+        if (!popUp.lead.open && popUp.lead.size < 0.9) { 
+            leadTtl[0].size = 0.5; leadTtl[1].size = 0.3; leadTtl[2].size = 0.1; leadTtl[3].size = -0.1;
+        }
+    };
+    var drawPopUp = function(elmName) {
+        //ANIMATE OPEN/CLOSE
+        anmPopUp(elmName);
+
+        //ANIMATE TITLE
+        if (elmName === "htp") { 
+            for (var i = 0; i < htpTtl.length; i++) {
+                if (htpTtl[0].y < 155) { popUpSpeed[0] = 0.5; }
+                if (htpTtl[0].y > 170) { popUpSpeed[0] = -0.5; }
+
+                htpTtl[i].y += popUpSpeed[0];
+            }
+        } else if (elmName === "lead") {
+            for (var i = 0; i < leadTtl.length; i++) {
+                if (leadTtl[0].y < 137) { popUpSpeed[1] = 0.5; }
+                if (leadTtl[0].y > 150) { popUpSpeed[1] = -0.5; }
+
+                leadTtl[i].y += popUpSpeed[1];
+            }
+        }
+
+        //DRAW
+        //BACKGROUND
+        if (elmName === "htp") { 
+            fill(0, 0, 0, popUp.coverOp[0]);
+        } else if (elmName === "lead") {
+            fill(0, 0, 0, popUp.coverOp[1]); 
+        }
+
+            noStroke(); rectMode(CORNER);
+        rect(0, 0, width, height);
+
+        //POP UP BACKGROUND
+        pushMatrix();
+            translate(200, 300);
+            if (elmName === "htp") { scale(popUp.htp.size); }
+            else if (elmName === "lead") { scale(popUp.lead.size); }
+            
+                fill(245, 245, 245); rectMode(CENTER);
+            rect(0, 0, 370, 450, 5);
+
+        popMatrix();
+
+        //TITLE
+        if (elmName === "htp" && popUp.htp.size > 0.75) {
+            for (var i = 0; i < htpTtl.length; i++) {
+                htpTtl[i].draw(color(42, 150, 42), color(43, 83, 41), color(43, 166, 43), 0.65, 0.55);
+            }
+        } else if (elmName === "lead" && popUp.lead.size > 0.75) {
+            for (var i = 0; i < leadTtl.length; i++) {
+                leadTtl[i].draw(color(42, 150, 42), color(43, 83, 41), color(43, 166, 43), 0.65, 0.55);
+            }
+        }
+
+        //CONTENT
+        pushMatrix();
+            translate(200, 300);
+            if (elmName === "htp") { scale(popUp.htp.size); }
+            else if (elmName === "lead") { scale(popUp.lead.size); }
+
+            if (elmName === "htp" && popUp.htp.size > 0.75) {
+                    textAlign(CENTER, CENTER); textFont(createFont("sans-serif Bold"), 20); fill(28, 74, 62);
+                text("Press the mouse or touch the screen to throw knives. \n\nHitting into a previously tossed knife will end the game.", -300/2, -200/2, 300, 200);
+            } else if (elmName === "lead" && popUp.lead.size > 0.75) {
+                    fill(0, 96, 255); rectMode(CORNER); //DRAW STAIRS
+                
+                rect(-60, 5, 120, 220); 
+                    triangle(-60, 5, -60, 225, -70, 225); triangle(60, 5, 60, 225, 75, 225);
+                rect(-175, 50, 100, 175);
+                    triangle(-175, 50, -77, 225, -180, 225); triangle(-75, 50, -75, 225, -72, 225);
+                rect(80, 85, 95, 140);
+                    triangle(80, 85, 80, 225, 76, 225); triangle(175, 85, 175, 225, 181, 225);
+                    
+                    fill(3, 37, 76); //DRAW TOP STAIRS SHADOW
+
+                rect(-40, -10, 80, 15);
+                    triangle(-40, -10, -40, 5, -60, 5); triangle(40, -10, 40, 5, 60, 5);
+                rect(-165, 35, 80, 15);
+                    triangle(-165, 35, -165, 50, -175, 50); triangle(-85, 35, -85, 50, -75, 50);
+                rect(93, 70, 70, 15);
+                    triangle(93, 70, 93, 85, 80, 85); triangle(163, 70, 163, 85, 175, 85);
+                    
+                //TEXT AND IMAGE
+                    fill(255, 165, 0); textFont(createFont("fantasy"));
+                textSize(50); text("1", 0, 45);
+                textSize(46); text("2", -125, 85);
+                textSize(44); text("3", 80 + 95/2, 120);
+                
+                    fill(255, 255, 255);
+                textSize(25); text("Unknown", 0, 85);
+                textSize(20); text("Unknown", -125, 125);
+                textSize(20); text("Unknown", 80 + 95/2, 155);
+                
+                    fill(222, 222, 222);
+                textSize(30); text("0", 0, 120);
+                textSize(25); text("0", -125, 155);
+                textSize(25); text("0", 80 + 95/2, 185);
+            }
+
+        popMatrix();
+
+        //BUTTON
+        if (popUp.htp.size > 0.75 || popUp.lead.size > 0.85) {
+            closeButton.popUp();
+        }
+    };
+
+var ribbon = {
+    x: [55, 290],
+    speed: [-0.5, 0.5]
+};
+
+    var drawRibbon = function() {
+        //ANIMATE
+        ribbon.x[0] += ribbon.speed[0];
+            if (ribbon.x[0] < 45) { ribbon.speed[0] = 0.5; }
+            if (ribbon.x[0] > 55) { ribbon.speed[0] = -0.5; }
+
+        ribbon.x[1] += ribbon.speed[1];
+            if (ribbon.x[1] > 290) { ribbon.speed[1] = -0.5; }
+            if (ribbon.x[1] < 280) { ribbon.speed[1] = 0.5; }
+
+        //DRAW RIBBON
+            rectMode(CORNER); fill(0, 96, 225); noStroke(); //RIBBONS
+        rect(ribbon.x[0], 85, 60, 140);
+            triangle(ribbon.x[0] + 1, 85, ribbon.x[0] + 1 - 10, 85, ribbon.x[0] + 1, 155); triangle(ribbon.x[0] + 1, 225, ribbon.x[0] + 1 - 10, 225, ribbon.x[0] + 1, 155);
+        rect(ribbon.x[1], 115, 60, 140);
+            triangle(ribbon.x[1] + 60, 115, ribbon.x[1] + 60, 115 + 75, ribbon.x[1] +  70, 115); triangle(ribbon.x[1] + 60, 115 + 140, ribbon.x[1] + 60, 115 + 60, ribbon.x[1] + 70, 115 + 140);
+
+        fill(0, 64, 255);
+
+        beginShape(); 
+            vertex(70, 100); //MAIN
+            vertex(70, 250);
+            vertex(330, 235);
+            vertex(330, 85);
+        endShape();
+
+        //DRAW TEXT
+            fill(255, 255, 255); textAlign(CENTER, CENTER); textFont(createFont("fantasy Bold"), 70); //TEXT
+        text(score, 200, 150);
+
+            fill(255, 165, 0); textFont(createFont("fantasy"), 25);
+        text("STAGE " + stage.num, 200, 205);
+    };
+
+var wood = {
+    angle: 0
+};
+
+    var drawWood = function() {
+        //DRAW
+        pushMatrix();
+        translate(200, 200);
+        rotate(degrees_to_rad(wood.angle));
+        scale(1.2);
+        
+        //MAIN
+            fill(252, 244, 163); stroke(130, 73, 11); strokeWeight(7);
+        ellipse(0, 0, 175, 175);
+
+        //INSIDE ELLIPSE
+            noFill(); stroke(250, 218, 94); strokeWeight(9);
+        ellipse(0, 0, 40, 35);
+        ellipse(0, 0, 90, 90);
+        ellipse(0, 0, 140, 130);
+
+        //DECORATION 
+            fill(250, 218, 94); rectMode(CORNER);
+        triangle(-50, -70, -75, -40, -25, -10); //upper left triangle
+        rect(-15, -60, 15, 10); //upper middle rect
+            triangle(-15, -60, -23, -58, -16, -50); //rect cover
+            triangle(0, -60, 8, - 58, 1, -52);
+
+        ellipse(-39, 15, 5, 10); //middle ellipse
+        triangle(80, 0, 75, -30, 27, -10); //middle right triangle
+        
+        triangle(20, 55, 35, 72, 25, 77); //under right triangle
+
+        ellipse(-50, 65, 5, 7); //under left decoration
+        triangle(-50, 70, -30, 50, -35, 75);
+        ellipse(-30, 75, 5, 7);
+            ellipse(-45, 47, 3, 1);
+
+        //OUTSIDE COVER
+            noFill(); stroke(130, 73, 11); strokeWeight(7);
+        ellipse(0, 0, 175, 175);
+
+        popMatrix();
+
+        //ANIMATE
+        wood.angle += gameSpeed;
+
+        if (wood.angle >= 360) { wood.angle = 0; }
+    };
+
+var knife = function(config) {
+    this.x = config.x || 0;
+    this.y = config.y || 200; //game limit: 35
+    this.angle = config.angle || 0; //for animation
+    this.size = config.size || 1.1;
+
+    //PLAY KNIFE VARIABLES
+    this.obsMode = false;
+    this.throw = false;
+
+    //REMAIN KNIFE VARIABLES
+    this.colour = color(0, 0, 0);
+};
+    var throwNum = 0; //store the number of thrown knives
+    var throwWhich = 0; //determine which knife to throw next
+    var totalObs = floor(random(1, 5)); //randomize
+    var whichObs = [floor(random(1, 5)), floor(random(1, 5)), floor(random(1, 5)), floor(random(1, 5))]; //also randomize
+    var angles = [36, 72, 108, 144, 180, 216, 252, 288, 324];
+    var rndmOnce = [true, true];
+    var hitSize = 0;
+
+    var playKnife = [new knife({}), new knife({}), new knife({}), new knife({}), new knife({}), new knife({}), new knife({}), new knife({}), new knife({}), new knife({})];
+    var remainKnife = []; //declared inside launchObs function
+    var logoKnife = new knife({x: -20, y: -170, angle: 105, size: 0.85});
+
+    knife.prototype.draw = function() {
+        pushMatrix();
+        translate(200, 200);
+        scale(this.size);
+        rotate(degrees_to_rad(this.angle));
+        
+            fill(179, 231, 242); noStroke(); rectMode(CENTER);
+        rect(this.x, this.y + 50, 26, 50); //upper sword
+        triangle(this.x - 13, this.y + 27, this.x  + 13.5, this.y + 25, this.x - 13, this.y);
+
+            fill(112, 179, 194);
+        rect(this.x - 8, this.y + 38, 10, 54); //upper sword shadow
+        triangle(this.x - 8 - 5, this.y + 40 - 29, this.x - 8 + 5, this.y + 40 - 29, this.x - 13, this.y);
+
+
+                fill(250, 128, 114); stroke(185, 14, 10); strokeWeight(3);
+            ellipse(this.x - 5, this.y + 95, 5, 38);
+            ellipse(this.x + 5, this.y + 95, 5, 38);
+                noStroke();
+        rect(this.x, this.y + 95, 10, 40); //under handle bar
+                fill(168, 71, 64);
+            rect(this.x, this.y + 85, 12, 3); //under handle bar decoration
+            rect(this.x, this.y + 95, 12, 3);
+            rect(this.x, this.y + 105, 12, 3);
+                fill(179, 231, 242);
+            rect(this.x, this.y + 115, 14, 3); //under handle bar diamond
+            rect(this.x, this.y + 118, 24, 5, 35);
+
+            fill(255, 215, 0); 
+        rect(this.x, this.y + 75, 50, 5, 15); //middle handle bar
+
+        popMatrix();
+    };
+    knife.prototype.anmPly = function() {
+        //ANIMATE AND DETECT ANGLE
+        if (this.throw && !this.obsMode) {
+            if (this.y > 35) { this.y -= 30; }
+            else { this.y = 35; }
+        }
+
+        //ROTATE
+        if (this.y === 35) { 
+            this.angle += gameSpeed; 
+
+            if (this.angle >= 360) { this.angle = 0; }
+        }
+    };
+    var drawHit = function() {
+        if (lose) { 
+            if (hitSize < 0.85) { hitSize += 0.1; }
+            else if (hitSize >= 0.85 && hitSize < 1) { hitSize += 0.005; }
+            else { hitSize = 1; } 
+        }
+
+        for (var i = 0; i <= 360; i += 30) { 
+            pushMatrix();
+            translate(200, 320);
+            rotate(degrees_to_rad(i));
+            scale(hitSize);
+
+                fill(255, 0, 0);
+            triangle(-20, 0, 20, 0, 0, 60);
+            popMatrix();
+        }
+    };
+    knife.prototype.drwRemain = function() {
+        fill(this.colour);
+
+        pushMatrix();
+        translate(35,  this.y);
+        scale(0.65);
+        rotate(degrees_to_rad(-45));
+        
+        triangle(-1, 0, 11, 0, 5, -10);
+            rectMode(CORNER);
+        rect(-1, 0, 12, 23); //sword
+        rect(-5, 25, 20, 5, 25); //middle handle bar
+        rect(2, 32, 6, 10); //under handle bar
+            ellipse(5, 41, 9, 9); //handle cover
+
+        popMatrix();
+    };
+
+    var launchObs = function() {
+        if (rndmOnce[0]) { 
+            totalObs = floor(random(1, 5));
+
+            rndmOnce[0] = false; 
+        }
+
+        if (rndmOnce[1]) {
+            //RANDOMIZE OBSTACLES' POSITIONS
+            if (totalObs === 1) {
+                whichObs = [floor(random(9))];
+            } else if (totalObs === 2) {
+                whichObs = [floor(random(9)), floor(random(9))];
+
+                while (whichObs[0] === whichObs[1]) { whichObs[0] = floor(random(9)); }
+            } else if (totalObs === 3) {
+                whichObs = [floor(random(9)), floor(random(9)), floor(random(9))];
+
+                while (whichObs[0] === whichObs[1]) { whichObs[0] = floor(random(9)); }
+                while (whichObs[0] === whichObs[2]) { whichObs[0] = floor(random(9)); }
+                while (whichObs[1] === whichObs[2]) { whichObs[1] = floor(random(9)); }
+            } else if (totalObs === 4) {
+                whichObs = [floor(random(9)), floor(random(9)), floor(random(9)), floor(random(9))];
+
+                while (whichObs[0] === whichObs[1]) { whichObs[0] = floor(random(9)); }
+                while (whichObs[0] === whichObs[2]) { whichObs[0] = floor(random(9)); }
+                while (whichObs[0] === whichObs[3]) { whichObs[0] = floor(random(9)); }
+                while (whichObs[1] === whichObs[2]) { whichObs[1] = floor(random(9)); }
+                while (whichObs[1] === whichObs[3]) { whichObs[1] = floor(random(9)); }
+                while (whichObs[2] === whichObs[3]) { whichObs[2] = floor(random(9)); }
+            }
+
+            //SET VARIABLES
+            for (var i = 0; i < whichObs.length; i++) {
+                playKnife[whichObs[i]].y = 35;
+                playKnife[whichObs[i]].angle = angles[whichObs[i]];
+                playKnife[whichObs[i]].obsMode = true;
+                playKnife[whichObs[i]].throw = true;
+            }
+
+            rndmOnce[1] = false;
+        }
+
+        //DETERMINE THE LENGTH OF REMAIN KNIFE
+        if (totalObs === 1) { remainKnife = [new knife({}), new knife({}), new knife({}), new knife({}), new knife({}), new knife({}), new knife({}), new knife({}), new knife({})]; }
+        if (totalObs === 2) { remainKnife = [new knife({}), new knife({}), new knife({}), new knife({}), new knife({}), new knife({}), new knife({}), new knife({})]; }
+        if (totalObs === 3) { remainKnife = [new knife({}), new knife({}), new knife({}), new knife({}), new knife({}), new knife({}), new knife({})]; }
+        if (totalObs === 4) { remainKnife = [new knife({}), new knife({}), new knife({}), new knife({}), new knife({}), new knife({})]; }
+
+        //CHECK THE VALUE OF THROWWHICH
+        for (var i = 0; i < whichObs.length; i++) {
+            if (throwWhich === whichObs[i]) { throwWhich++; }
+        }
+    };
+
+var UI = function() {
+    if (mouseIsPressed) { 
+        pressDelay ++;
+    } else { pressDelay = -1; }
+    
+    for (var j = 0; j < 9; j++) {
+        if (!lose && pressDelay === 5 * j) { 
+            for (var i = 0; i < playKnife.length; i++) {
+                if (i === 0) {
+                    playKnife[i].throw = true;
+                } else {
+                    if (playKnife[i - 1].throw && i === throwWhich) {
+                        playKnife[i].throw = true;
+                    }
+                }
+            }
+
+            if (throwNum < remainKnife.length) {
+                throwNum++;
+                throwWhich++;
+                score++;
+            }
+        }
+    }
+};
+var detectCol = function() {
+    for (var i = 0; i < playKnife.length; i++) {
+        if (playKnife[i].angle >= 335 || playKnife[i].y <= 5) {
+            if (mouseIsPressed) {
+                gameSpeed = 0;
+                lose = true;
+            }   
+        }
+    }
+};
+
+var stage = {
+    num: 1,
+    highest: 1,
+    reset: true
+};
+
+    var resetStg = function() {
+        gameSpeed = 5;
+        throwNum = 0;
+        throwWhich = 0;
+        rndmOnce = [true, true];
+        hitSize = 0; 
+
+        bg.playOp = 255;
+        wood.angle = 0;
+
+        for (var i = 0; i < playKnife.length; i++) {
+            playKnife[i].y = 200;
+            playKnife[i].angle = 0;
+            
+            playKnife[i].obsMode = false;
+            playKnife[i].throw = false;
+        }
+        
+        for (var i = 0; i < remainKnife.length; i++) {
+            remainKnife[i].colour = color(0, 0, 0);
+        }
+
+        stage.reset = false;
+    };
+    var drawStg = function() {
+            fill(255, 165, 0); textAlign(CORNER, CENTER); textFont(createFont("fantasy"), 25);
+        text("STAGE " + stage.num, 20, 35);
+
+            textAlign(CENTER, CENTER); textSize(45);
+        text(score, 355, 40);
+    };
+    var launchStage = function() {
+        drawStg();
+
+        if (throwNum === remainKnife.length && playKnife[9].y === 35) {
+            stage.num++;
+
+            stage.reset = true;
+        }
+
+        if (stage.reset) { resetStg(); }
+    };
+
+var launchRestart = function() {
+    if (restart) {
+        lose = false;
+
+        score = 0;
+        stage.num = 1;
+
+        stage.reset = true;
+
+        restart = false;
+    }
+};
+
+    var pressDelay = -1;
+
+    var scnTemplate = function(curScene) {
+        currentScene = curScene;
+
+        background(150, 150, 150);
+
+        drawBg();
+    };
+var playScene = function() {
+    scnTemplate(1);
+
+    //RESTART AND STAGE
+    launchRestart();
+    launchStage();
+
+    //KNIFES
+    launchObs();
+
+    for (var i = 0; i < playKnife.length; i++) {
+        playKnife[i].draw();
+        playKnife[i].anmPly();
+    }
+
+    for (var i = 0; i < remainKnife.length; i++) {
+        //SET VARIABLES
+        remainKnife[i].y = 550 - 25 * i;
+
+        if (throwNum - 1 >= i) {
+            remainKnife[i].colour = color(175, 221, 237);
+        }
+
+        //DRAW
+        remainKnife[i].drwRemain();
+    }
+
+    //OTHERS: UI, WOOD, COVER, LOSE DETECTION
+    UI();
+    drawWood();
+    drawCover();
+    detectCol();
+
+    drawHit();
+
+    scenePos.lose = [-260, 260]; //SET VARIABLES
+
+    if (lose && hitSize === 1) { loseScene(); } //CHANGE SCENE
+};
+var loseScene = function() {
+    scnTemplate(2);
+
+    if (score > highscore) { highscore = score; }
+    if (stage.num > stage.highest) { stage.highest = stage.num; }
+
+    //ANIMATE
+    if (scenePos.lose[0] < 0) { scenePos.lose[0] += 13; }
+    if (scenePos.lose[1] > 0) { scenePos.lose[1] -= 13; }
+
+
+    pushMatrix();
+    translate(0, scenePos.lose[0]);
+        //BUTTONS
+        homeButton.home(); 
+        restartButton.main("RESTART");
+
+        drawRibbon();
+    popMatrix();
+
+    pushMatrix();
+    translate(0, scenePos.lose[1]);
+        //BUTTONS
+        soundButton.menu("sound");
+        htpButton.menu("htp");
+        leaderButton.menu("leaderboard");
+
+        //POP UPS
+        drawPopUp("htp");
+        drawPopUp("lead");
+    popMatrix();
+
+    //SET VARIABLES
+    scenePos.home = [-320, 320];
+
+    firstLine[0].size = 0.5; firstLine[1].size = 0.3; firstLine[2].size = 0.1; firstLine[3].size = -0.1; firstLine[4].size = -0.3;
+    secondLine[0].size = 0.25; secondLine[1].size = 0.15; secondLine[2].size = 0.05; secondLine[3].size = - 0.05;
+};
+var homeScene = function() {
+    scnTemplate(3);
+    
+    //ANIMATE
+    if (scenePos.home[0] < 0) { scenePos.home[0] += 20; }
+    if (scenePos.home[1] > 0) { scenePos.home[1] -= 20; }
+
+    launchRestart();
+
+    //TITLE AND LOGO
+    pushMatrix();
+    translate(0, scenePos.home[0]);
+        anmTitle();
+
+        for (var i = 0; i < firstLine.length; i++) {
+            firstLine[i].draw(color(116, 255, 3), color(80, 133, 42), color(168, 255, 97), 1, 0.65);
+        }
+
+        for (var i = 0; i < secondLine.length; i++) {
+            secondLine[i].draw(color(255, 230, 104), color(255, 181, 22), color(252, 238, 167), 0.65, 0.5);
+        }
+
+        logoKnife.draw("logo");
+            knifeLight(165, 220, 0.6, 0.5, 355);
+    popMatrix();
+
+    pushMatrix();
+    translate(0, scenePos.home[1]);
+        highestTxt(); //TEXT
+
+        //BUTTONS
+        playButton.main("PLAY");
+        
+        soundButton.menu("sound");
+        htpButton.menu("htp");
+        leaderButton.menu("leaderboard");
+    popMatrix();
+
+    //POP UPS
+    drawPopUp("htp");
+    drawPopUp("lead");
+
+    //SET VARIABLES
+    bg.playOp = 255;
+};
+
+draw = function() {
+    if (currentScene === 1) { playScene(); }
+    else if (currentScene === 2) { loseScene(); }
+    else if (currentScene === 3) { homeScene(); }
+};
+
+mouseClicked = function() {
+    if (currentScene === 2 && (scenePos.lose[0] === 0 && scenePos.lose[1] === 0)) {
+        if (!popUp.htp.open && !popUp.lead.open) { 
+            if (homeButton.isMouseInside()) { homeScene(); restart = true; }
+            if (restartButton.isMouseInside()) { restart = true; playScene();  }
+
+            if (soundButton.isMouseInside()) {
+                if (soundOn) { soundOn = false; }
+                else if (!soundOn) { soundOn = true; }
+            }
+        }
+        
+        if (htpButton.isMouseInside() && !popUp.lead.open) { popUp.htp.open = true; }
+        if (leaderButton.isMouseInside() && !popUp.htp.open) { popUp.lead.open = true; }
+
+        if (closeButton.isMouseInside()) {
+            if (popUp.htp.open) { popUp.htp.open = false; }
+            if (popUp.lead.open) { popUp.lead.open = false; }
+        }
+    }
+    else if (currentScene === 3 && (scenePos.home[0] === 0 && scenePos.home[1] === 0)) {
+        if (!popUp.htp.open && !popUp.lead.open) { 
+            if (playButton.isMouseInside()) { playScene(); restart = true; }
+
+            if (soundButton.isMouseInside()) {
+                if (soundOn) { soundOn = false; }
+                else if (!soundOn) { soundOn = true; }
+            }
+        }
+        
+        if (htpButton.isMouseInside() && !popUp.lead.open) { popUp.htp.open = true; }
+        if (leaderButton.isMouseInside() && !popUp.htp.open) { popUp.lead.open = true; }
+
+        if (closeButton.isMouseInside()) {
+            if (popUp.htp.open) { popUp.htp.open = false; }
+            if (popUp.lead.open) { popUp.lead.open = false; }
+        }
+    }
+};
+
+mousePressed = function() { mouseIsPressed = true; };
+mouseReleased = function() { mouseIsPressed = false; };
+
+    }};
+
+    var canvas = document.getElementById("mycanvas"); 
+    var processingInstance = new Processing(canvas, sketchProc); 
+ </script>
+
+</html>
