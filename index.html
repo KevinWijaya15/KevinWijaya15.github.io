@@ -2,14 +2,166 @@
 <html> 
  <head>
     <title>Knife Hit</title> 
+
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            font-family: sans-serif;
+        }
+
+        h1, h2 {
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            padding-left: 50px;
+        }
+
+        h2 {
+            color: rgb(80, 80, 80);
+        }
+
+        h3 {
+            font-size: 1.5em;
+        }
+
+        ul li {
+            line-height: 2em;
+            margin-left: 65px;
+        }
+
+        a:link  {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: black;
+        }
+
+        a:hover {
+            color: brown;
+        }
+
+        #header {
+            background-color: white;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            width: 100%;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            padding-left: 20px;
+            z-index: 2;
+        }
+    
+        #projects-button {
+            font-size: 18px;
+            position: fixed;
+            top: 37px;
+            right: 30px;
+        }
+
+        #heading-line {
+            width: 100%;
+            position: fixed;
+            top: 96px;
+            left: 0px;
+        }
+
+        #content {
+            background-color: rgb(241, 241, 241);
+            width: 100%;
+            position: absolute;
+            top: 95px;
+            left: 0px;
+            padding-top: 10px;
+            padding-bottom: 50px;
+        }
+
+        .info {
+            color:rgb(110, 110, 110);
+            position: relative;
+            padding-left: 50px;
+        }
+
+        #footer {
+            background-color: rgb(44, 44, 44);
+            color: white;
+            width: 100%;
+
+            position: absolute;
+            top: 2040px;
+            left: 0px;
+            padding-top: 20px;
+            padding-bottom: 5px;
+        }
+
+        .top-programs {
+            padding-left: 50px;
+        }
+
+        p.top-programs {
+            color: white;
+            padding-left: 65px;
+        }
+
+        #credit {
+            color:rgb(214, 214, 214);
+            padding-top: 30px;
+            padding-left: 10px;
+        }
+    </style>
 </head>
- <body>
-     <h1 align "center">Knife Dash by Kevin</h1>
-    <p align = "center"> 
-      <canvas id="mycanvas"></canvas> 
-    </p>
-     
-    <p> <a href = "https://www.khanacademy.org/computer-programming/knife-dash-game/4508896652640256">Click here</a> to view original project on Khan Academy. </
+<body>
+    <div id = "header">
+        <img src = "https://powdercoating521.files.wordpress.com/2017/09/kevin.png" alt = "Kevin Logo" width = 100px>
+        
+        <a href = "https://www.khanacademy.org/profile/KevinWijaya15/projects" id = "projects-button">Projects</a>
+
+        <hr id = "heading-line">
+    </div>
+    
+    <div id = "content">
+        <h1 id = "title">Play Knife Dash</h1>
+
+        <p align = "center"> 
+            <canvas id="mycanvas"></canvas> 
+        </p>
+        
+        <h2>Game Description</h2>
+        <p class = "info">This game is the recreation of Knife Hit, which was published by Ketchapp and released on 20 January 2018. </p>
+        <br>
+
+        <h2>Disclaimer</h2>
+        <p class = "info">All code and algorithm in this program is 100% original.</p>
+        <br>
+
+        <h2>Acknowledgement</h2>
+        <p class = "info">Huge thanks to the incredible people listed below who have helped make this game a reality.</p>
+        <ul class = "info">
+            <li>Jacek Jeznach for giving me inspiration regarding the Knife Dash title animation</li>
+            <li>Troy Cook for the dragable draggable curve vertex program, which I find very useful</li>
+            <li>Larry Serflaten for spending much time with me to improve gameplay and solve several technical problems</li>
+            <li>Martin Nicol for his help</li>
+        </ul>
+        <br>
+
+        <h2>In-Game Screenshots</h2>
+        <img class = "info" src = "https://cdn57.androidauthority.net/wp-content/uploads/2018/04/ketchapp-knife-hit.jpg" alt = "knife hit logo image" width = 450 height = 250>
+        <img class = "info" src = "https://rexdl.com/image/android/game/knife-hit-apk.jpg" alt = "game screenshot" height = 250>
+        <br><br>
+
+        <h2>Get Tips and Tricks</h2>
+        <iframe class = "info" width="450" height="250" src="https://www.youtube.com/embed/KKaqZCKPW30" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <br>
+    </div>
+   
+    <div id = "footer">
+        <h3 class = "top-programs"><b>Top Programs</b></h3>
+            <p class = "top-programs">Piano Tiles</p>
+            <p class = "top-programs">Highway Drivers</p>
+            <p class = "top-programs">Knife Dash</p>
+        
+        <p id = "credit">Created by Kevin Wijaya @2021</p>
+    </div>
  </body>
  
  <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
@@ -801,8 +953,13 @@ var knife = function(config) {
         }
     };
 
+var pressDelay = -1;
+var timeDelay = 0;
+
 var UI = function() {
-    if (mouseIsPressed) { 
+    timeDelay += 0.025;
+
+    if (mouseIsPressed && timeDelay >= 0.25) { 
         pressDelay ++;
     } else { pressDelay = -1; }
     
@@ -829,7 +986,7 @@ var UI = function() {
 var detectCol = function() {
     for (var i = 0; i < playKnife.length; i++) {
         if (playKnife[i].angle >= 335 || playKnife[i].y <= 5) {
-            if (mouseIsPressed) {
+            if (mouseIsPressed && timeDelay >= 0.25) {
                 gameSpeed = 0;
                 lose = true;
             }   
@@ -865,6 +1022,8 @@ var stage = {
             remainKnife[i].colour = color(0, 0, 0);
         }
 
+        timeDelay = 0;
+
         stage.reset = false;
     };
     var drawStg = function() {
@@ -877,7 +1036,7 @@ var stage = {
     var launchStage = function() {
         drawStg();
 
-        if (throwNum === remainKnife.length && playKnife[9].y === 35) {
+        if (!lose && throwNum === remainKnife.length && playKnife[9].y === 35) {
             stage.num++;
 
             stage.reset = true;
@@ -898,8 +1057,6 @@ var launchRestart = function() {
         restart = false;
     }
 };
-
-    var pressDelay = -1;
 
     var scnTemplate = function(curScene) {
         currentScene = curScene;
@@ -1085,5 +1242,4 @@ mouseReleased = function() { mouseIsPressed = false; };
     var canvas = document.getElementById("mycanvas"); 
     var processingInstance = new Processing(canvas, sketchProc); 
  </script>
-
 </html>
