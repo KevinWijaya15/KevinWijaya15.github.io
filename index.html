@@ -1,25 +1,16 @@
 <!DOCTYPE html>
 <html> 
  <head>
-    <title>Kevin Wijaya - Game Dev</title> 
+    <title>Kevin Wijaya - Game Dev</title>
+
     <link rel = "shortcut icon" type = "image" href = "https://cryptologos.cc/logos/tron-trx-logo.png">
+    <link rel = "stylesheet" type = "text/css" href = "style.css">
 
     <style>
-        body {
-            background-color: rgb(241, 241, 241);
-            color: black;
-            font-family: sans-serif;
-        }
-
-        h1, h2 {
-            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        h1 {
             padding-left: 50px;
         }
-
-        h2 {
-            color: rgb(80, 80, 80);
-        }
-
+        
         h3 {
             font-size: 1.5em;
         }
@@ -29,119 +20,24 @@
             margin-left: 65px;
         }
 
-        #header {
-            background-color: white;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            width: 100%;
-            position: fixed;
-            top: 0px;
-            left: 0px;
-            padding-left: 20px;
-            z-index: 2;
-        }
-    
-        #projects-button {
-            color: black;
-            font-size: 18px;
-            text-decoration: none;
-            position: fixed;
-            top: 37px;
-            right: 30px;
-        }
-
-        #heading-line {
-            width: 100%;
-            position: fixed;
-            top: 96px;
-            left: 0px;
-        }
-
-        #content {
-            background-color: rgb(241, 241, 241);
-            font-size: 16px;
-            width: 100%;
-            min-height: 100%;
-            
-            position: relative;
-            top: 95px;
-            left: 0px;
-            padding-top: 10px;
-            padding-bottom: 50px;
-        }
-
         .info {
             color:rgb(110, 110, 110);
             position: relative;
             padding-left: 50px;
         }
-
-        .footer {
-            background-color: rgb(44, 44, 44);
-            color: white;
-            width: 100%;
-            height: 300px;
-            display: flex;
-
-            position: absolute;
-            left: 0px;
-            padding-top: 20px;
-            padding-bottom: 5px;
-        }
-
-        .footer .footer-section {
-            flex: 1; 
-            /* PASTE THIS:      border: 1px solid red; */
-        }
-
-        .footer .footer-bottom {
-            color:rgb(214, 214, 214);
-            width: 99%;
-
-            position: absolute;
-            bottom: 0px;
-            left: 0px;
-            padding-top: 30px;
-            padding-left: 10px;
-        }
-
-        .most-voted {
-            padding-left: 70px;
-        }
-
-        p a.most-voted, p a.AI {
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-            text-decoration: none;
-            line-height: 2em;
-            padding-left: 85px;
-        }
-
-        .AI {
-            position: relative;
-            padding-left: 0px;
-        }
-
-        p a.AI {
-            padding-left: 15px;
-        }
-        
-        img.social-media {
-            margin-top: 10px;
-            margin-right: 30px;
-        }
     </style>
 </head>
 <body>
     <div id = "header">
-        <img src = "https://powdercoating521.files.wordpress.com/2017/09/kevin.png" alt = "Kevin Logo" width = 100px>
+        <a href = "index.html"> <img src = "https://powdercoating521.files.wordpress.com/2017/09/kevin.png" alt = "Kevin Logo" width = 100px> </a>
         
-        <a href = "https://www.khanacademy.org/profile/KevinWijaya15/projects" id = "projects-button">Projects</a>
+        <a href = "programs.html" id = "programs-button">Programs</a>
 
         <hr id = "heading-line">
     </div>
     
     <div id = "content">
-        <h1 id = "title">Play Knife Dash</h1>
+        <h1 id = "title">Knife Dash</h1>
 
         <p align = "center"> 
             <canvas id="mycanvas"></canvas> 
@@ -192,7 +88,7 @@
         </div>
 
         <div class = "social-media footer-section">
-            <h3 class = "social-media"><b>Follow Me</b></h3>
+            <h3 class = "social-media"><b>Social</b></h3>
             <a href = "https://github.com/KevinWijaya15"><img class = "social-media" src = "logo github.jpg" alt = "github button" height = 32></a>
             <a href = "https://twitter.com/_kwijaya"><img class = "social-media" src = "logo twitter.jpg" alt = "twitter button" height = 30></a>
             <a href = "https://www.instagram.com/_kw59"><img class = "social-media" src = "logo instagram.jpg" height = 30></a>
