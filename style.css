@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans:wght@700&display=swap');
 
 body {
@@ -96,13 +97,13 @@ h2 {
 }
 
 h3.most-voted, h3.AI, h3.social-media {
-    font-size: 20px;
+    font-size: 1.35em;
 }
 
 p a.most-voted, p a.AI {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
+    font-size: 1em;
     text-decoration: none;
     line-height: 2em;
     padding-left: 70px;
