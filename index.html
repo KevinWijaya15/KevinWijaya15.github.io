@@ -3,7 +3,7 @@
 <head>
 	<title>Kevin Wijaya - Game Dev</title>
 	<link rel = "shortcut icon" type = "image" href = "https://cryptologos.cc/logos/tron-trx-logo.png">
- <link rel = "stylesheet" type = "text/css" href = "style.css">
+    <link rel = "stylesheet" type = "text/css" href = "style.css">
 </head>
 <style>
 	div.intro {
@@ -19,46 +19,62 @@
 
 	h1.intro {
 		font-family: 'Arimo', sans-serif;
-		font-size: 90px;
+		font-size: 7em;
 		position: relative;
 	}
 
 	p.intro {
 		color: rgb(85, 85, 85);
+		font-size: 1.25em;
 		letter-spacing: 7px;
 		margin-top: -35px;
 	}
 
 	img.intro {
+		height: 105%;
 		position: absolute;
-		top: -50px;
+		top: 95px;
 		right: 0px;
+	}
+
+	#programs-and-into-panel {
+		position: absolute;
+		top: 175%;
 	}
 
 	.layer {
 		margin-top: 65px;
 	}
 
+	#latest-panel {
+		position: absolute;
+		top: 120%;
+		left: 0px;
+	}
+
 	.latest-panel {
 		background-color: rgb(148, 46, 40);
 		color: white;
 		width: 100%;
-		height: 350px;
+		height: 50%;
 		display: flex;
-
-		position: relative;
-		left: 0px;
 	}
 
 	#latest-image {
 		position: relative;
-		left: 40%;
-		top: 50px;
+		left: 45%;
+		top: 25%;
+	}
+
+	img.latest-panel {
+		height: 150%;
 	}
 
 	#latest-title {
-		font-size: 35px;
-		padding: 20px;
+		font-size: 1.75em;
+		padding-top: 3%;
+		padding-left: 0px;
+		padding-right: 30%;
 		position: relative;
 		top: 75px;
 	}
@@ -101,20 +117,20 @@
 	img.into {
 		border-radius: 5px;
 		position: relative;
-		width: 450px;
+		width: 35%;
 		top: -235px;
 		left: 59%;
 	}
 
 	.footer {
-		margin-top: -140px;
+		top: 365%;
 	}
 </style>
 <body>
 	<div id = "header">
-	    <a href = "https://kevinwijaya15.github.io"> <img src = "https://powdercoating521.files.wordpress.com/2017/09/kevin.png" alt = "Kevin Logo" width = "100"> </a>
+	    <a href = "index.html"> <img src = "https://powdercoating521.files.wordpress.com/2017/09/kevin.png" alt = "Kevin Logo" width = "100"> </a>
 	    
-	    <a href = "https://kevinwijaya15.github.io/programs/" id = "programs-button">Programs</a>
+	    <a href = "programs.html" id = "programs-button">Programs</a>
 
 	    <hr id = "heading-line">
 	</div>
@@ -124,15 +140,13 @@
 		I'm Kevin</h1>
 
 		<p class = "intro">HTML | CSS | JS</p>
-
-		<img src = "kevin.png" class = "intro" height = "550" alt = "Kevin">
-
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	</div>
 
-	<div class = "latest-panel">
+	<img src = "kevin.png" class = "intro" height = "550" alt = "Kevin">
+
+	<div id = "latest-panel" class = "latest-panel">
 		<div class = "latest-panel content">
-			<a href = "https://kevinwijaya15.github.io/knife-dash/" id = "latest-image"><img src = "https://www.khanacademy.org/computer-programming/knife-dash-game/4508896652640256/latest.png" width = "250px" height = "250px"></a>
+			<a href = "knife-dash.html" id = "latest-image"><img class = "latest-panel" src = "https://www.khanacademy.org/computer-programming/knife-dash-game/4508896652640256/latest.png"></a>
 		</div>
 
 		<div class = "latest-panel content">
@@ -140,32 +154,34 @@
 		</div>
 	</div>
 
-	<h1 class = "layer" align = "center">Programs</h1>
+	<div id = "programs-and-into-panel">
+		<h1 class = "programs layer" align = "center">Programs</h1>
 
-	<div class = "programs1">
-		<a href = "https://www.khanacademy.org/computer-programming/piano-tiles-game/4687070145495040" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/piano-tiles-game/4687070145495040/latest.png"></a>
-		<a href = "https://www.khanacademy.org/computer-programming/rock-paper-scissor-ai-game/5638249151676416" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/rock-paper-scissor-ai-game/5638249151676416/latest.png"></a>
-		<a href = "https://kevinwijaya15.github.io/knife-dash/" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/knife-dash-game/4508896652640256/latest.png"></a>
-		<a href = "https://www.khanacademy.org/computer-programming/remember-not-game/5127917387857920" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/remember-not-game/5127917387857920/latest.png"></a>
-		<a href = "https://www.khanacademy.org/computer-programming/highway-drivers-game/5628311333453824" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/highway-drivers-game/5628311333453824/latest.png"></a>
+		<div class = "programs1">
+			<a href = "https://www.khanacademy.org/computer-programming/piano-tiles-game/4687070145495040" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/piano-tiles-game/4687070145495040/latest.png"></a>
+			<a href = "https://www.khanacademy.org/computer-programming/rock-paper-scissor-ai-game/5638249151676416" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/rock-paper-scissor-ai-game/5638249151676416/latest.png"></a>
+			<a href = "https://kevinwijaya15.github.io/knife-dash/" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/knife-dash-game/4508896652640256/latest.png"></a>
+			<a href = "https://www.khanacademy.org/computer-programming/remember-not-game/5127917387857920" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/remember-not-game/5127917387857920/latest.png"></a>
+			<a href = "https://www.khanacademy.org/computer-programming/highway-drivers-game/5628311333453824" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/highway-drivers-game/5628311333453824/latest.png"></a>
+		</div>
+
+		<div class = "programs2">
+			<a href = "https://www.khanacademy.org/computer-programming/tic-tac-toe-ai-game/6287874015576064" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/tic-tac-toe-ai-game/6287874015576064/latest.png">
+			<a href = "https://www.khanacademy.org/computer-programming/self-driving-car-simulation/6350196312588288" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/self-driving-car-simulation/6350196312588288/latest.png"></a>
+			<a href = "https://www.khanacademy.org/computer-programming/blow-mindeth-game/5898057450733568" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/blow-mindeth-game/5898057450733568/latest.png"></a>
+			<a href = "https://www.khanacademy.org/computer-programming/flappy-bird-game/5569546369318912" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/flappy-bird-game/5569546369318912/latest.png"></a>
+			<a href = "https://kevinwijaya15.github.io/knife-dash/" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/knife-dash-game/4508896652640256/latest.png"></a>
+		</div>
+
+		<h1 class = "into layer">What I'm into?</h1>
+
+		<p class = "into" align = "justify">I mostly develop games, though I believe that coding has much more useful implementations. I've been learning HTML, CSS, and JavaScript (Processing JS and DOM), as well as Python, for a while now - finishing several Computer Science courses on Khan Academy: <a class = "into" href = "https://www.khanacademy.org/computing/computer-programming/programming">Intro to JS: Drawing & Animation</a>, <a class = "into" href = "https://www.khanacademy.org/computing/computer-programming/html-css">Intro to HTML/CSS: Making webpages</a>, and <a class = "into" href = "https://www.khanacademy.org/computing/computer-programming/programming-games-visualizations">Advanced JS: Games & Visualizations</a>.
+		<br><br>
+
+		More about my experience you'll find <a class = "into" href = "https://www.khanacademy.org/profile/KevinWijaya15">here</a>.</p>
+
+		<img class = "into" src = "into image.png" alt = "coding screenshot">
 	</div>
-
-	<div class = "programs2">
-		<a href = "https://www.khanacademy.org/computer-programming/tic-tac-toe-ai-game/6287874015576064" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/tic-tac-toe-ai-game/6287874015576064/latest.png">
-		<a href = "https://www.khanacademy.org/computer-programming/self-driving-car-simulation/6350196312588288" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/self-driving-car-simulation/6350196312588288/latest.png"></a>
-		<a href = "https://www.khanacademy.org/computer-programming/blow-mindeth-game/5898057450733568" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/blow-mindeth-game/5898057450733568/latest.png"></a>
-		<a href = "https://www.khanacademy.org/computer-programming/flappy-bird-game/5569546369318912" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/flappy-bird-game/5569546369318912/latest.png"></a>
-		<a href = "https://kevinwijaya15.github.io/knife-dash/" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/knife-dash-game/4508896652640256/latest.png"></a>
-	</div>
-
-	<h1 class = "into layer">What I'm into?</h1>
-
-	<p class = "into" align = "justify">I mostly develop games, though I believe that coding has much more useful implementations. I've been learning HTML, CSS, and JavaScript (Processing JS and DOM), as well as Python, for a while now - finishing several Computer Science courses on Khan Academy: <a class = "into" href = "https://www.khanacademy.org/computing/computer-programming/programming">Intro to JS: Drawing & Animation</a>, <a class = "into" href = "https://www.khanacademy.org/computing/computer-programming/html-css">Intro to HTML/CSS: Making webpages</a>, and <a class = "into" href = "https://www.khanacademy.org/computing/computer-programming/programming-games-visualizations">Advanced JS: Games & Visualizations</a>.
-	<br><br>
-
-	More about my experience you'll find <a class = "into" href = "https://www.khanacademy.org/profile/KevinWijaya15">here</a>.</p>
-
-	<img class = "into" src = "into image.png" alt = "coding screenshot">
 
 	<div class = "footer">
         <div class = "most-voted footer-section">
