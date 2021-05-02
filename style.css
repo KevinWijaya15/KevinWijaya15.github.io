@@ -50,6 +50,20 @@ h2 {
     left: 0px;
 }
 
+#KA-link {
+    border: 1px solid rgb(44, 44, 44);
+    border-radius: 60px;
+    padding: 8.5px 9.5px 8.5px 9.5px;
+    position: fixed;
+    z-index: 3;
+    bottom: 20px;
+    right: 15px;
+}
+
+#KA-link:hover {
+    border: 1px solid green;
+}
+
 #content {
     background-color: rgb(241, 241, 241);
     font-size: 16px;
