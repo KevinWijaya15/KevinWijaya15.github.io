@@ -19,6 +19,15 @@ h2 {
     padding-left: 50px;
 }
 
+p a {
+    color: brown;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
 #header {
     background-color: white;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -30,16 +39,20 @@ h2 {
     z-index: 2;
 }
 
-#programs-button {
+#about-button, #programs-button {
     color: black;
     font-size: 18px;
     text-decoration: none;
     position: fixed;
     top: 37px;
+    right: 125px;
+}
+
+#programs-button {
     right: 30px;
 }
 
-#programs-button:hover {
+#about-button:hover, #programs-button:hover {
     color: brown;
 }
 
