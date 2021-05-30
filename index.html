@@ -2,203 +2,448 @@
 <html>
 <head>
 	<title>Kevin Wijaya - Game Dev</title>
-	<link rel = "shortcut icon" type = "image" href = "https://cryptologos.cc/logos/tron-trx-logo.png">
-    <link rel = "stylesheet" type = "text/css" href = "style.css">
+
+	<!-- Bootstrap Library -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<style>
+		/* Import Google Fonts for intro title */
+		@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@700&display=swap');
+
+		/* Import Google Fonts for testimonial quote */
+		@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+		/* Defaults */
+		nav {
+			position: fixed;
+		}
+
+		h1 {
+			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+			font-size: 3em;
+			margin-top: 75px;
+			margin-bottom: 25px;
+		}
+
+		p {
+			font-family: sans-serif;
+			font-size: 1.15em;
+			padding-bottom: 50px;
+		}
+
+		a {
+			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+			color: brown;
+		}
+
+		a:hover {
+			color: brown;
+			text-decoration: underline;
+		}
+
+		/* Navbar */
+		.navbar-style {
+			box-shadow: 0 5px 10px #efefef;
+		}
+
+		.logo {
+			height: 80px;
+			padding: 2px 10px; 
+		}
+
+		.icon-bar {
+			background-color: brown;
+		}
+
+		ul.dropdown-menu {
+			border: none;
+			border-top: 3px solid brown;
+			border-radius: 0;
+		}
+
+		li a.nav-link {
+			color: black;
+			font-size: 1.2em;
+			margin-top: 16px;
+		}
+
+		li a.nav-link:hover {
+			background-color: transparent;
+			color: brown;
+		}
+
+		li a.dropdown-link {
+			color: black;
+			font-size: 1em;
+			padding-top: 7px;
+			padding-bottom: 7px;
+		}
+
+		/* Cover Page */
+		.header {
+			height: 100vh;
+		}
+
+		h1.intro {
+			font-family: 'Arimo', sans-serif;
+			font-size: 7em;
+			margin-top: 25%;
+		}
+
+		p.intro {
+			color: rgb(85, 85, 85);
+			font-size: 1.25em;
+			letter-spacing: 7px;
+			margin-top: 15px;
+		}
+
+		/* Programs Page */
+		img.programs-content {
+			width: 100%;
+		}
+
+		div.col-lg-3 {
+			padding: 0px;
+		}
+
+		/* What I'm Into Page */
+		img.into {
+			width: 85%; /* set width */
+			display: block; /* align center image */
+			margin-left: auto;
+			margin-right: auto;
+			position: relative; /* set vertical position */
+			top: -35px; 
+		}
+
+		/* What They Say Page */
+		div.what-they-say {
+			border-radius: 0px;
+			height: 195px;
+			box-shadow: 5px 5px 5px 5px #888888;
+		}
+
+		div.testimonial-content {
+			margin: 0; 
+			position: absolute; 
+			top: 50%; 
+			left: 50%; 
+			-ms-transform: translate(-50%, -40%); 
+			transform: translate(-50%, -40%);		
+		}
+
+		h2.testimonial {
+			color: black;
+			font-family: 'Quicksand', sans-serif;
+			font-size: 1.5em;
+			font-weight: bold;
+			margin-bottom: 15px;
+		}
+
+		p.testimonial {
+			color: #454545;
+			font-family: sans-serif;
+			font-size: 18px;
+		}
+
+		a.button {
+			color: brown;
+			font-weight: bold;
+			font-size: 35px;
+			text-decoration: none;
+			margin: 0px;
+
+			position: absolute;
+			top: 50%;
+			-ms-transform: translateY(-50%);
+	  		transform: translateY(-50%);
+
+	  		transition: 0.25s;
+		}
+
+		a.button:hover {
+			font-size: 50px;
+		}
+
+		a.left {
+			left: 5%;
+		}
+
+		a.right {
+			right: 5%;
+		}
+
+		/* Footer */
+		.footer {
+			background-color: rgb(35, 35, 35);
+			color: white;
+			width: 100%;
+			padding-bottom: 50px;
+			margin-top: 125px;
+		}
+
+		h3.footer-title {
+			margin-top: 75px;
+			margin-bottom: 30px;
+		}
+
+		p.footer-link {
+			padding-bottom: 5px;
+		}
+
+		p a.footer-link {
+		    color: white;
+		    font-family: Arial, Helvetica, sans-serif;
+		    text-decoration: none;
+		}
+
+		p a.footer-link:hover {
+		    color: rgb(150, 150, 150);
+		}
+
+		img.footer-link {
+		    margin-top: 10px;
+		    margin-right: 30px;
+		}
+	</style>
 </head>
-<style>
-	div.intro {
-		position: relative;
-		top: 95px;
-		width: 100%;
-		min-height: 100%;
-	}
-
-	h1.intro, p.intro {
-		padding-left: 50px;
-	}
-
-	h1.intro {
-		font-family: 'Arimo', sans-serif;
-		font-size: 7em;
-		position: relative;
-	}
-
-	p.intro {
-		color: rgb(85, 85, 85);
-		font-size: 1.25em;
-		letter-spacing: 7px;
-		margin-top: -35px;
-	}
-
-	img.intro {
-		height: 105%;
-		position: absolute;
-		top: 95px;
-		right: 0px;
-	}
-
-	#programs-and-into-panel {
-		position: absolute;
-		top: 175%;
-	}
-
-	.layer {
-		margin-top: 65px;
-	}
-
-	#latest-panel {
-		position: absolute;
-		top: 120%;
-		left: 0px;
-	}
-
-	.latest-panel {
-		background-color: rgb(148, 46, 40);
-		color: white;
-		width: 100%;
-		height: 50%;
-		display: flex;
-	}
-
-	#latest-image {
-		position: relative;
-		left: 45%;
-		top: 25%;
-	}
-
-	img.latest-panel {
-		height: 150%;
-		width: 125%;
-	}
-
-	#latest-title {
-		font-size: 40px;
-		margin-top: 1.95%;
-		padding-left: 0px;
-		width: 500px;
-		position: relative;
-		top: 75px;
-	}
-
-	.programs1, .programs2 {
-		width: 100%;
-		display: flex;
-	}
-
-	.programs2 {
-		margin-top: -4px;
-	}
-
-	.programs-content {
-		flex: 1;
-	}
-
-	img.programs-content {
-		width: 100%;
-	}
-
-	h1.into, p.into {
-		padding-left: 50px;
-	}
-
-	p.into {
-		line-height: 25px;
-		width: 50%;
-	}
-
-	img.into {
-		border-radius: 5px;
-		position: relative;
-		width: 35%;
-		top: -235px;
-		left: 59%;
-	}
-
-	.footer {
-		top: 365%;
-	}
-</style>
 <body>
-	<div id = "header">
-        <a href = "https://kevinwijaya15.github.io"> <img src = "https://powdercoating521.files.wordpress.com/2017/09/kevin.png" alt = "Kevin Logo" width = "100"> </a>
-        
-        <a href = "https://kevinwijaya15.github.io/about/" id = "about-button">About</a>
-        <a href = "https://kevinwijaya15.github.io/programs/" id = "programs-button">Programs</a>
+	<header class = "header">
+		<!-- Navigation -->
+		<nav class = "navbar navbar-style" style = "background-color: white; position: fixed; width: 100%; z-index: 10;">
+			<div class = "container">
+				<div class = "navbar-header">
+					<!-- Navigation Button -->
+					<button type = "button" class = "navbar-toggle" data-toggle = "collapse" data-target = "#micon" style = "margin-top: 4.5%;">
+						<span class = "icon-bar"></span>
+						<span class = "icon-bar"></span>
+						<span class = "icon-bar"></span>
+					</button>
 
-        <hr id = "heading-line">
-    </div>
+					<!-- Kevin Logo -->
+					<a href = "https://kevinwijaya15.github.io"><img src = "kevin logo.png" class = "logo"></a>
+				</div>
 
-	<div class = "intro">
-		<h1 class = "intro">Hi,<br>
-		I'm Kevin</h1>
+				<!-- Navigation Selections -->
+				<div class = "collapse navbar-collapse" id = "micon">
+					<ul class = "nav navbar-nav navbar-right">
+						<!-- About Button -->
+						<li><a href = "https://kevinwijaya15.github.io/about/" class = "nav-link">About</a></li>
 
-		<p class = "intro">HTML | CSS | JS</p>
+						<!-- Programs Button -->
+						<li><a href = "https://kevinwijaya15.github.io/programs" class = "nav-link">Programs</a></li>
+
+						<!-- Social Dropdown Button -->
+						<li class = "dropdown">
+							<a href = "#" class = "dropdown-toggle nav-link" data-toggle = "dropdown" href = "#">Social <b class="caret"></b></a>
+
+							<ul class="dropdown-menu">
+						    	<li><a href = "https://www.khanacademy.org/profile/KevinWijaya15/" class = "dropdown-link">Khan Academy</a></li>
+						    	<li><a href = "https://github.com/KevinWijaya15" class = "dropdown-link">Github</a></li>
+						    	<li><a href = "https://www.instagram.com/_kw59" class = "dropdown-link">Instagram</a></li>
+						    </ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Intro Page -->
+		<div class = "container">
+			<div class = "row">
+				<div class = "col-sm-6">
+					<h1 class = "intro">Hi, <br> I'm Kevin</h1>
+
+					<p class = "intro">HTML | CSS | JS</p>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Programs Title -->
+	<div class = "container">
+		<div class = "col-sm-10">
+			<h1 class = "mains">Programs</h1>
+
+			<p class = "mains">Below is a small gallery of my projects, all of which I've developed with guidance from amazing mentors from Khan Academy. It's only a drop in the ocean compared to the entire list. Interested to see more? Visit the <a href = "https://kevinwijaya15.github.io/programs/">programs</a> page.</p>
+		</div>
 	</div>
 
-	<img src = "kevin.png" class = "intro" height = "550" alt = "Kevin">
+	<!-- Programs Images -->
+	<div class = "container-fluid">
+		<!-- Piano Tiles Image -->
+		<div class = "col-lg-3"><a href = "https://kevinwijaya15.github.io/piano-tiles/"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/piano-tiles-game/4687070145495040/latest.png"></a></div>
 
-	<div id = "latest-panel" class = "latest-panel">
-		<div class = "latest-panel content">
-			<a href = "https://kevinwijaya15.github.io/knife-dash/" id = "latest-image"><img class = "latest-panel" src = "https://www.khanacademy.org/computer-programming/knife-dash-game/4508896652640256/latest.png"></a>
+		<!-- Rock Paper Scissor AI Image -->
+		<div class = "col-lg-3"><a href = "https://kevinwijaya15.github.io/rock-paper-scissor-ai/" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/rock-paper-scissor-ai-game/5638249151676416/latest.png"></a></div>
+
+		<!-- Spotify Sound Image -->
+		<div class = "col-lg-3"><a href = "https://kevinwijaya15.github.io/spotify-sound/" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/spotify-sound-app/4818997152268288/latest.png"></a></div>
+
+		<!-- Remember Not Image -->
+		<div class = "col-lg-3"><a href = "https://kevinwijaya15.github.io/remember-not/" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/remember-not-game/5127917387857920/latest.png"></a></div>
+
+		<!-- Highway Drivers Image -->
+		<div class = "col-lg-3"><a href = "https://kevinwijaya15.github.io/highway-drivers/" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/highway-drivers-game/5628311333453824/latest.png"></a></div>
+
+		<!-- Tic Tac Toe AI Image -->
+		<div class = "col-lg-3"><a href = "https://kevinwijaya15.github.io/tic-tac-toe-ai/" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/tic-tac-toe-ai-game/6287874015576064/latest.png"></div>
+
+		<!-- Blow Mindeth Image -->
+		<div class = "col-lg-3"><a href = "https://kevinwijaya15.github.io/blow-mindeth/" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/blow-mindeth-game/5898057450733568/latest.png"></a></div>
+
+		<!-- Knife Dash Image -->
+		<div class = "col-lg-3"><a href = "https://kevinwijaya15.github.io/knife-dash/" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/knife-dash-game/4508896652640256/latest.png"></a></div>
+	</div>
+
+	<!-- What I'm Into Page -->
+	<div class = "container">
+		<div class = "col-sm-12">
+			<h1>What I'm Into</h1>
 		</div>
 
-		<div class = "latest-panel content">
-			<h1 id = "latest-title" align = "center">CHECK OUT MY LATEST PUBLISHED GAME</h1>
+		<!-- Text-->
+		<div class = "col-sm-6">
+			<p align = "justify">I mostly develop games, though I believe that coding has much more useful implementations. I've been learning HTML, CSS, and JavaScript (Processing JS and DOM), as well as Python, for a while now - finishing several Computer Science courses on Khan Academy such as <a class = "into" href = "https://www.khanacademy.org/computing/computer-programming/programming">Intro to JS: Drawing & Animation</a>, <a class = "into" href = "https://www.khanacademy.org/computing/computer-programming/html-css">Intro to HTML/CSS: Making webpages</a>, and <a class = "into" href = "https://www.khanacademy.org/computing/computer-programming/programming-games-visualizations">Advanced JS: Games & Visualizations</a>.
+			<br><br>
+
+			More about my experience you'll find <a class = "into" href = "https://www.khanacademy.org/profile/KevinWijaya15">here</a>.</p>
+		</div>
+
+		<!-- Image -->
+		<div class = "col-sm-6">
+			<img class = "into" src = "into image.png" alt = "coding screenshot">
 		</div>
 	</div>
 
-	<div id = "programs-and-into-panel">
-		<h1 class = "programs layer" align = "center">Programs</h1>
+	<!-- What They Say Page -->
+	<div class = "container">
+		<!-- Title -->
+		<div class = "col-sm-10">
+			<h1>What They Say</h1>
 
-		<div class = "programs1">
-			<a href = "https://kevinwijaya15.github.io/piano-tiles/" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/piano-tiles-game/4687070145495040/latest.png"></a>
-			<a href = "https://kevinwijaya15.github.io/rock-paper-scissor-ai/" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/rock-paper-scissor-ai-game/5638249151676416/latest.png"></a>
-			<a href = "https://kevinwijaya15.github.io/spotify-sound/" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/spotify-sound-app/4818997152268288/latest.png"></a>
-			<a href = "https://kevinwijaya15.github.io/remeber-not/" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/remember-not-game/5127917387857920/latest.png"></a>
-			<a href = "https://kevinwijaya15.github.io/highway-drivers/" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/highway-drivers-game/5628311333453824/latest.png"></a>
+			<p align =  "justify">The word <em>they</em> refer to other programmers from the Khan Academy Community who share their honest opinions about some of my best programs. See their testimonies below.</p>
 		</div>
 
-		<div class = "programs2">
-			<a href = "https://kevinwijaya15.github.io/tic-tac-toe-ai/" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/tic-tac-toe-ai-game/6287874015576064/latest.png">
-			<a href = "https://kevinwijaya15.github.io/self-driving-car/" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/self-driving-car-simulation/6350196312588288/latest.png"></a>
-			<a href = "https://kevinwijaya15.github.io/blow-mindeth/" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/blow-mindeth-game/5898057450733568/latest.png"></a>
-			<a href = "https://kevinwijaya15.github.io/flappy-bird/" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/flappy-bird-game/5569546369318912/latest.png"></a>
-			<a href = "https://kevinwijaya15.github.io/knife-dash/" class = "programs-content"><img class = "programs-content" src = "https://www.khanacademy.org/computer-programming/knife-dash-game/4508896652640256/latest.png"></a>
+		<!-- Testimonial Panel -->
+		<div class = "col-sm-8 col-lg-offset-2 what-they-say">
+			<!-- Buttons -->
+			<a href = "#" class = "left button"> < </a>
+			<a href = "#" class = "right button"> > </a>
+
+			<!-- Words -->
+			<div class = "testimonial-content">
+				<h2 class = "testimonial" align = "center">Awesome game - really nice implementation :)</h2>
+				<p class = "testimonial" align = "center"><strong class = "testimonial" style = "color: brown;">Grant Jenkins</strong> on <span class = "testimonial">Knife Dash</span></p>
+			</div>
 		</div>
-
-		<h1 class = "into layer">What I'm into?</h1>
-
-		<p class = "into" align = "justify">I mostly develop games, though I believe that coding has much more useful implementations. I've been learning HTML, CSS, and JavaScript (Processing JS and DOM), as well as Python, for a while now - finishing several Computer Science courses on Khan Academy: <a class = "into" href = "https://www.khanacademy.org/computing/computer-programming/programming">Intro to JS: Drawing & Animation</a>, <a class = "into" href = "https://www.khanacademy.org/computing/computer-programming/html-css">Intro to HTML/CSS: Making webpages</a>, and <a class = "into" href = "https://www.khanacademy.org/computing/computer-programming/programming-games-visualizations">Advanced JS: Games & Visualizations</a>.
-		<br><br>
-
-		More about my experience you'll find <a class = "into" href = "https://www.khanacademy.org/profile/KevinWijaya15">here</a>.</p>
-
-		<img class = "into" src = "into image.png" alt = "coding screenshot">
 	</div>
 
+	<!-- Footer -->
 	<div class = "footer">
-        <div class = "most-voted footer-section">
-            <h3 class = "most-voted"><b>Most Voted</b></h3>
-                <p><a class = "most-voted" href = "https://kevinwijaya15.github.io/spotify-sound/">Spotify Sound</a></p>
-                <p><a class = "most-voted" href = "https://kevinwijaya15.github.io/piano-tiles/">Piano Tiles</a></p>
-                <p><a class = "most-voted" href = "https://kevinwijaya15.github.io/highway-drivers/">Highway Drivers</a></p>
-        </div>
-        
-        <div class = "AI footer-section">
-            <h3 class = "AI"><b>AI Programs</b></h3>
-                <p><a class = "AI" href = "https://kevinwijaya15.github.io/blow-mindeth/">BlowMindeth</a></p>
-                <p><a class = "AI" href = "https://kevinwijaya15.github.io/rock-paper-scissor-ai/">Rock Paper Scissor</a></p>
-                <p><a class = "AI" href = "https://kevinwijaya15.github.io/tic-tac-toe-ai/">Tic Tac Toe</a></p>
-        </div>
+		<div class = "container">
+			<!-- Navigation Links -->
+			<div class = "col-sm-3">
+				<h3 class = "footer-title"><b>Navigation</b></h3>
 
-        <div class = "social-media footer-section">
-            <h3 class = "social-media"><b>Social</b></h3>
-            <a href = "https://github.com/KevinWijaya15"><img class = "social-media" src = "logo github.jpg" alt = "github button" height = 32></a>
-            <a href = "https://twitter.com/_kwijaya"><img class = "social-media" src = "logo twitter.jpg" alt = "twitter button" height = 30></a>
-            <a href = "https://www.instagram.com/_kw59"><img class = "social-media" src = "logo instagram.jpg" height = 30></a>
-        </div>
-        
-        <p id = "credit" class = "footer-bottom" align = "center">Created by Kevin Wijaya @2021</p>
-    </div>
+                <p class = "footer-link"><a class = "footer-link" href = "https://kevinwijaya15.github.io/">Home</a></p>
+                <p class = "footer-link"><a class = "footer-link" href = "https://kevinwijaya15.github.io/about/">About</a></p>
+                <p class = "footer-link"><a class = "footer-link" href = "https://kevinwijaya15.github.io/programs/">Programs</a></p>
+			</div>
+
+			<!-- Originals Links -->
+			<div class = "col-sm-3">
+				<h3 class = "footer-title"><b>Originals</b></h3>
+
+                <p class = "footer-link"><a class = "footer-link" href = "https://kevinwijaya15.github.io/spotify-sound/">Spotify Sound</a></p>
+                <p class = "footer-link"><a class = "footer-link" href = "https://kevinwijaya15.github.io/piano-tiles/">Piano Tiles</a></p>
+			</div>
+
+			<!-- AI Links -->
+			<div class = "col-sm-3">
+				<h3 class = "footer-title"><b>AI Programs</b></h3>
+
+                <p class = "footer-link"><a class = "footer-link" href = "https://kevinwijaya15.github.io/blow-mindeth/">BlowMindeth</a></p>
+                <p class = "footer-link"><a class = "footer-link" href = "https://kevinwijaya15.github.io/rock-paper-scissor-ai/">Rock Paper Scissor</a></p>
+                <p class = "footer-link"><a class = "footer-link" href = "https://kevinwijaya15.github.io/tic-tac-toe-ai/">Tic Tac Toe</a></p>
+			</div>
+
+			<!-- Social Links -->
+			<div class = "col-sm-3">
+				<h3 class = "footer-title"><b>Social</b></h3>
+
+	            <a href = "https://www.khanacademy.org/profile/KevinWijaya15/"><img class = "footer-link" src = "footer KA.png" alt = "KA button" height = 32></a>
+	            <a href = "https://github.com/KevinWijaya15"><img class = "footer-link" src = "footer github.jpg" alt = "github button" height = 32></a>
+	            <a href = "https://www.instagram.com/_kw59"><img class = "footer-link" src = "footer instagram.jpg" height = 32></a>
+			</div>
+
+			<div class = "col-sm-12">
+				<p style = "margin-top: 50px; font-size: 0.97em;" align = "center">Made by Kevin Wijaya</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- JS for Testimonial Animation -->
+	<script type = "text/javascript">
+		var testi = ["Awesome game - really nice implementation :)", "Nice game! This looks very professional.", "This is epic. The accuracy is great. You really made it looks professional. Not to mention that you made it functional (well the most functional it can be).", "This is really good for your first platformer. Great work!", "This is amazing! Everything is so smooth and the little ninja guy is so cute!", "Wow very nice! The gameplay overall is great and I like how you structured the menu screen and overall UI.", "I see no reason for this not to be at the top of the hotlist.", "Wow very nice! The gameplay overall is great and I like how you structured the menu screen and overall UI.", "nice game! this is pretty original and very fun. good work :D"];
+
+		var author = ["Grant Jenkins", "Ky", "VEXCESS", "originallyIK", "dragonQueen", "SKY", "Ace", "SKY", "Ibraheem Ahmed"];
+
+		var game = ["Knife Dash", "Knife Dash", "Spotify Sound", "Ninja Jumper", "Ninja Jumper", "Piano Tiles", "Piano Tiles", "Piano Tiles", "Highway Drivers"];
+
+		var testiEl = document.querySelector("h2.testimonial");
+		var descEl = document.querySelector("p.testimonial");
+		var authorEl = document.querySelector("strong.testimonial");
+		var gameEl = document.querySelector("span.testimonial");	
+
+		var which = 0;
+
+		//automatically change every 5 seconds
+		function chgTestiAuto() {
+			which++;
+
+			if (which > 8) { which = 0; } //restart
+
+			if (which === 2) { testiEl.style.fontSize = "1.15em"; }
+			else if (which === 4) { testiEl.style.fontSize = "1.25em"; }
+			else { testiEl.style.fontSize = "1.5em"; }
+			
+			testiEl.textContent = testi[which];
+			authorEl.textContent = author[which];
+			gameEl.textContent = game[which];
+		}
+
+
+		window.setInterval(chgTestiAuto, 5000); 
+
+		var buttons = document.getElementsByClassName("button");
+
+	   	function addWhich(e) {
+	        e.preventDefault();
+	        
+	        chgTestiAuto();
+	    };
+	    function minusWhich(e) {
+	    	e.preventDefault();
+
+	    	which--;
+
+	    	if (which < 0) { which = 8; }
+
+	    	testiEl.textContent = testi[which];
+			authorEl.textContent = author[which];
+			gameEl.textContent = game[which];
+	    }
+
+	    buttons[0].addEventListener("click", minusWhich);
+	    buttons[1].addEventListener("click", addWhich);
+	</script>
 </body>
 </html>
