@@ -20,90 +20,15 @@
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+	<!-- Main CSS -->
+	<link rel = "stylesheet" type = "text/css" href = "style.css">
+
 	<style>
 		/* Import Google Fonts for intro title */
 		@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@700&display=swap');
 
 		/* Import Google Fonts for testimonial quote */
 		@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
-
-		/* Zoom for mobile */
-		@viewport {
-			zoom: 1.0;
-			width: extend-to-zoom;
-		}
-
-		@-ms-viewport {
-			zoom: 1.0;
-			width: extend-to-zoom;
-		}
-
-		/* Defaults */
-		nav {
-			position: fixed;
-		}
-
-		h1 {
-			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-			font-size: 3em;
-			margin-top: 75px;
-			margin-bottom: 25px;
-		}
-
-		p {
-			font-family: sans-serif;
-			font-size: 1.15em;
-			line-height: 1.75em;
-			padding-bottom: 50px;
-		}
-
-		a {
-			font-family: sans-serif;
-			color: brown;
-		}
-
-		a:hover {
-			color: brown;
-			text-decoration: underline;
-		}
-
-		/* Navbar */
-		.navbar-style {
-			box-shadow: 0 5px 10px #efefef;
-		}
-
-		.logo {
-			height: 80px;
-			padding: 2px 10px; 
-		}
-
-		.icon-bar {
-			background-color: brown;
-		}
-
-		ul.dropdown-menu {
-			border: none;
-			border-top: 3px solid brown;
-			border-radius: 0;
-		}
-
-		li a.nav-link {
-			color: black;
-			font-size: 1.2em;
-			margin-top: 16px;
-		}
-
-		li a.nav-link:hover {
-			background-color: transparent;
-			color: brown;
-		}
-
-		li a.dropdown-link {
-			color: black;
-			font-size: 1em;
-			padding-top: 7px;
-			padding-bottom: 7px;
-		}
 
 		/* Cover Page */
 		.header {
@@ -198,45 +123,12 @@
 		a.right {
 			right: 5%;
 		}
-
-		/* Footer */
-		.footer {
-			background-color: rgb(35, 35, 35);
-			color: white;
-			width: 100%;
-			padding-bottom: 50px;
-			margin-top: 125px;
-		}
-
-		h3.footer-title {
-			margin-top: 75px;
-			margin-bottom: 30px;
-		}
-
-		p.footer-link {
-			padding-bottom: 5px;
-		}
-
-		p a.footer-link {
-		    color: white;
-		    font-family: Arial, Helvetica, sans-serif;
-		    text-decoration: none;
-		}
-
-		p a.footer-link:hover {
-		    color: rgb(150, 150, 150);
-		}
-
-		img.footer-link {
-		    margin-top: 10px;
-		    margin-right: 30px;
-		}
 	</style>
 </head>
 <body>
 	<header class = "header">
 		<!-- Navigation -->
-		<nav class = "navbar navbar-style" style = "background-color: white; position: fixed; width: 100%; z-index: 10;">
+		<nav class = "navbar navbar-style" style = "position: fixed;">
 			<div class = "container">
 				<div class = "navbar-header">
 					<!-- Navigation Button -->
@@ -402,7 +294,7 @@
 
 			<!-- Social Links -->
 			<div class = "col-sm-3">
-				<h3 class = "footer-title"><b>Social</b></h3>
+				<h3 class = "footer-title"  style = "margin-bottom: 0;"><b>Social</b></h3>
 
 	            <a href = "https://www.khanacademy.org/profile/KevinWijaya15/"><img class = "footer-link" src = "footer KA.png" alt = "KA button" height = 32></a>
 	            <a href = "https://github.com/KevinWijaya15"><img class = "footer-link" src = "footer github.jpg" alt = "github button" height = 32></a>
