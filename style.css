@@ -1,161 +1,122 @@
-/* this file is used to save css styles for mains, header, KA link, content, and footer */
-
-@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans:wght@700&display=swap');
-
-/* MAINS */
-body {
-    background-color: rgb(241, 241, 241);
-    color: black;
-    font-family: sans-serif;
+/* Zoom for mobile */
+@viewport {
+	zoom: 1.0;
+	width: extend-to-zoom;
 }
 
+@-ms-viewport {
+	zoom: 1.0;
+	width: extend-to-zoom;
+}
+
+/* Defaults */
 h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 45px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	font-size: 3em;
+	margin-top: 75px;
+	margin-bottom: 25px;
 }
 
-h2 {
-    color: rgb(80, 80, 80);
-    font-family: "Segoe UI", sans-serif;
-    position: relative;
-    padding-left: 50px;
+p {
+	font-family: sans-serif;
+	font-size: 1.15em;
+	line-height: 1.75em;
+	padding-bottom: 50px;
 }
 
-p a {
-    color: brown;
-    text-decoration: none;
+a {
+	font-family: sans-serif;
+	color: brown;
 }
 
-p a:hover {
-    text-decoration: underline;
+a:hover {
+	color: brown;
+	text-decoration: underline;
 }
 
-
-
-/* HEADER */
-.navbar {
-    background-color: white;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    width: 100%;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    padding-left: 20px;
-    z-index: 2;
+/* Navbar */
+nav {
+	background-color: white;
+	width: 100%; 
+	z-index: 10;
 }
 
-#about-button, #programs-button {
-    color: black;
-    font-size: 18px;
-    text-decoration: none;
-    position: fixed;
-    top: 37px;
-    right: 125px;
+.navbar-style {
+	box-shadow: 0 5px 10px #efefef;
 }
 
-#programs-button {
-    right: 30px;
+.logo {
+	height: 80px;
+	padding: 2px 10px; 
 }
 
-#about-button:hover, #programs-button:hover {
-    color: brown;
+.icon-bar {
+	background-color: brown;
 }
 
-#heading-line {
-    width: 100%;
-    position: fixed;
-    top: 96px;
-    left: 0px;
+ul.dropdown-menu {
+	border: none;
+	border-top: 3px solid brown;
+	border-radius: 0;
 }
 
-
-
-/* KHAN ACADEMY LINK (PROGRAMS PAGE) */
-#KA-link {
-    border: 1px solid rgb(44, 44, 44);
-    border-radius: 60px;
-    padding: 8.5px 9.5px 8.5px 9.5px;
-    position: fixed;
-    z-index: 3;
-    bottom: 20px;
-    right: 15px;
+li a.nav-link {
+	color: black;
+	font-size: 1.2em;
+	margin-top: 16px;
 }
 
-#KA-link:hover {
-    border: 1px solid green;
+li a.nav-link:hover {
+	background-color: transparent;
+	color: brown;
 }
 
-
-
-/* CONTENT */
-#content {
-    background-color: rgb(241, 241, 241);
-    font-size: 16px;
-    width: 100%;
-    min-height: 100%;
-    
-    position: relative;
-    top: 95px;
-    left: 0px;
-    padding-top: 10px;
-    padding-bottom: 50px;
+li a.dropdown-link {
+	color: black;
+	font-size: 1em;
+	padding-top: 7px;
+	padding-bottom: 7px;
 }
 
+/* Content */
+.top {
+	margin-top: 150px;
+}
 
+.bottom {
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
 
-/* FOOTER */
+/* Footer */
 .footer {
-    background-color: rgb(44, 44, 44);
-    color: white;
-    width: 100%;
-    height: 300px;
-    display: flex;
-
-    position: absolute;
-    left: 0px;
-    padding-top: 20px;
-    padding-bottom: 15px;
+	background-color: rgb(35, 35, 35);
+	color: white;
+	width: 100%;
+	padding-bottom: 50px;
+	margin-top: 125px;
 }
 
-.footer .footer-section {
-    flex: 1; 
-    padding-left: 50px;
-
-    /* PASTE THIS:      border: 1px solid red; */
+h3.footer-title {
+	margin-top: 75px;
+	margin-bottom: 30px;
 }
 
-.footer .footer-bottom {
-    color: rgb(214, 214, 214);
-    width: 99%;
-
-    position: absolute;
-    bottom: 10px;
-    left: 0px;
-    padding-top: 30px;
-    padding-left: 10px;
-    padding-right: 0px;
+p.footer-link {
+	padding-bottom: 5px;
 }
 
-
-
-h3.navi, h3.oris, h3.AI, h3.social-media {
-    font-size: 1.35em;
-}
-
-p a.navi, p a.oris, p a.AI {
+p a.footer-link {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1em;
     text-decoration: none;
-    line-height: 2em;
 }
 
-a.navi:hover, a.oris:hover, a.AI:hover {
+p a.footer-link:hover {
     color: rgb(150, 150, 150);
 }
 
-img.social-media {
-    margin-top: 10px;
+img.footer-link {
+	margin-top: 35px;
     margin-right: 30px;
 }
