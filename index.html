@@ -1,3 +1,10 @@
+<!--
+	TODO:
+	- import file from form.html
+	- enlarge input panel 
+	- centerize form using offset
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +14,6 @@
 	<!-- Website Icon -->
 	<link rel = "shortcut icon" type = "image" href = "https://cryptologos.cc/logos/tron-trx-logo.png">
 
-	
 	<!-- Meta Tags -->
 	<meta charset = "UTF-8"> <!-- Language -->
 	<meta name = "description" content = "Hi, I'm Kevin. In this website, I host some of my established programs. I mostly develop games, though I believe that coding has much more useful implementations."> <!-- Description -->
@@ -24,6 +30,9 @@
 
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<!-- Google Recaptcha Script -->
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 	<!-- Main CSS -->
 	<link rel = "stylesheet" type = "text/css" href = "style.css">
@@ -70,6 +79,12 @@
 			margin-right: auto;
 			position: relative; /* set vertical position */
 			top: -25px; 
+		}
+
+		@media screen and (max-width: 768px) {
+			img.into {
+				top: 25px;
+			}
 		}
 
 		/* What They Say Page */
@@ -127,6 +142,43 @@
 
 		a.right {
 			right: 5%;
+		}
+
+		/* Contact Page */
+		label {
+			font-family: 'Raleway', sans-serif;
+			font-size: 1.5em;
+			margin-bottom: 15px;
+		}
+
+		input, textarea {
+			margin-bottom: 25px;
+			border: 1px solid brown;
+		}
+
+		textarea {
+			resize: vertical;
+			min-height: 75px;
+			max-height: 150px;
+		}
+
+		button[type = "submit"] {
+			background-color: transparent;
+			color: brown;
+			font-size: 18px;
+			border: 1px solid brown;
+			border-radius: 8px;
+			outline: none;
+			cursor: pointer;
+			width: 175px;
+			padding: 10px;
+			margin-top: 10px;
+			transition: 0.75s ease background-color;
+		}
+
+		button[type = "submit"]:hover {
+			background-color: brown;
+			color: white;
 		}
 	</style>
 </head>
@@ -227,7 +279,7 @@
 
 		<!-- Text-->
 		<div class = "col-sm-6">
-			<p align = "justify">I mostly develop games, though I believe that coding has much more useful implementations. I've been learning HTML, CSS, and JavaScript (Processing JS and DOM), as well as Python, for a while now - finishing several Computer Science courses on Khan Academy such as
+			<p align = "justify" style = "padding-bottom: 0;">I mostly develop games, though I believe that coding has much more useful implementations. I've been learning HTML, CSS, and JavaScript (Processing JS and DOM), as well as Python, for a while now - finishing several Computer Science courses on Khan Academy such as
 
 				<a href = "https://www.khanacademy.org/computing/computer-programming/programming" target = "blank">Intro to JS: Drawing & Animation</a>, 
 				<a href = "https://www.khanacademy.org/computing/computer-programming/html-css" target = "blank">Intro to HTML/CSS: Making webpages</a>, 
@@ -266,6 +318,114 @@
 				<p class = "testimonial" align = "center"><strong class = "testimonial" style = "color: brown;">Grant Jenkins</strong> on <span class = "testimonial">Knife Dash</span></p>
 			</div>
 		</div>
+	</div>
+
+	<!-- Contact Me Page -->
+	<div class = "container">
+		<div class = "col-sm-10">
+			<h1 style = "margin-top: 150px;">Contact Me</h1>
+
+			<p>I'm very interested in hearing from you. Feel free to drop me a line by filling the form below if you have any request, question, idea, or feedback.</p>
+		</div>
+
+		<div class = "col-sm-8 col-sm-offset-2">
+			<form action = "https://formspree.io/f/mjvjrwbj" method = "POST" id = "my-form">
+				<!-- First Name and Last Name Panel -->
+				<div class = "form-row">
+					<div class = "form-group col-sm-5">
+						<label for = "firstName">First Name</label>
+						<input type = "text" id = "firstName" class = "form-control" name = "firstName" placeholder = "What's your first name?" required>
+					</div>
+
+					<div class = "form-group col-sm-5">
+						<label for = "lastName">Last Name</label>
+						<input type = "text" id = "lastName" class = "form-control" placeholder = "What's your last name?" name = "lastName" required>
+					</div>
+				</div>
+
+				<!-- Email and Subject Panel -->
+				<div class = "form-row">
+					<div class = "form-group col-sm-5">
+						<label for = "email">Email</label>
+						<input type = "email" id = "email" class = "form-control" placeholder = "What's your email address?" name = "email" required>
+					</div>
+
+					<div class = "form-group col-sm-5">
+						<label for = "subject">Subject</label>
+						<input type = "text" id = "subject" class = "form-control" placeholder = "What are you interested in?" name = "subject" required>
+					</div>
+				</div>
+
+				<!-- Message Panel -->
+				<div class = "form-row">
+					<div class = "form-group col-sm-10">
+						<label for = "message">Message</label>
+						<textarea id = "message" class = "form-control" name = "message" cols = "30" rows = "3" placeholder = "What's your message?" required></textarea>
+					</div>
+				</div>
+
+				<!-- Recaptcha and Submit Panel -->
+				<div class = "form-row">
+					<div class = "form-group col-sm-10">
+						<div class="g-recaptcha" data-sitekey="6Ld71C0bAAAAAFH4-DXcplcEvv8_4tI5xhsOcF8B" required></div>
+					</div>
+
+					<div class = "form-group col-sm-10">
+						<button type = "submit">Send Message</button>
+					</div>
+				</div>
+			</form>
+
+			<div id = "my-form-status"></div>
+		</div>
+
+		<!--
+		<form>
+		  <div class="form-row">
+		    <div class="form-group col-md-6">
+		      <label for="inputEmail4">Email</label>
+		      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+		    </div>
+		    <div class="form-group col-md-6">
+		      <label for="inputPassword4">Password</label>
+		      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="inputAddress">Address</label>
+		    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+		  </div>
+		  <div class="form-group">
+		    <label for="inputAddress2">Address 2</label>
+		    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+		  </div>
+		  <div class="form-row">
+		    <div class="form-group col-md-6">
+		      <label for="inputCity">City</label>
+		      <input type="text" class="form-control" id="inputCity">
+		    </div>
+		    <div class="form-group col-md-4">
+		      <label for="inputState">State</label>
+		      <select id="inputState" class="form-control">
+		        <option selected>Choose...</option>
+		        <option>...</option>
+		      </select>
+		    </div>
+		    <div class="form-group col-md-2">
+		      <label for="inputZip">Zip</label>
+		      <input type="text" class="form-control" id="inputZip">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <div class="form-check">
+		      <input class="form-check-input" type="checkbox" id="gridCheck">
+		      <label class="form-check-label" for="gridCheck">
+		        Check me out
+		      </label>
+		    </div>
+		  </div>
+		  <button type="submit" class="btn btn-primary">Sign in</button>
+		</form> -->
 	</div>
 
 	<!-- Footer -->
