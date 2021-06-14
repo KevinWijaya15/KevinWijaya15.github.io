@@ -1,8 +1,6 @@
-<!--
+\<!--
 	TODO:
 	- import file from form.html
-	- enlarge input panel 
-	- centerize form using offset
 -->
 
 <!DOCTYPE html>
@@ -73,18 +71,27 @@
 
 		/* What I'm Into Page */
 		img.into {
-			width: 85%; /* set width */
-			display: block; /* align center image */
-			margin-left: auto;
-			margin-right: auto;
-			position: relative; /* set vertical position */
-			top: -25px; 
+			width: 85%; 
+			padding-top: 10%;
+			display: block; /* centerize image */
+			margin: auto;
 		}
 
-		@media screen and (max-width: 768px) {
-			img.into {
-				top: 25px;
-			}
+		/* Related Certifications Page */
+		h2.certificate {
+			font-family: 'Raleway', sans-serif;
+			font-size: 2.25em;
+			margin-top: 0;
+			margin-bottom: 10px;
+		}
+
+		a.certificate {
+			font-size: 1.25em;
+		}
+
+		img.certificate {
+			width: 100%;
+			margin-top: 25px;
 		}
 
 		/* What They Say Page */
@@ -152,33 +159,25 @@
 		}
 
 		input, textarea {
+			width: 100%;
+			font-size: 17px;
+			border: none;
+			border-bottom: 1px solid darkgrey;
+			padding-bottom: 1px;
+			border-radius: 0;
 			margin-bottom: 25px;
-			border: 1px solid brown;
+		}
+
+		input:focus, textarea:focus {
+			outline: none;
+			border-bottom: 2px solid brown;
+			padding-bottom: 0px;
 		}
 
 		textarea {
 			resize: vertical;
 			min-height: 75px;
 			max-height: 150px;
-		}
-
-		button[type = "submit"] {
-			background-color: transparent;
-			color: brown;
-			font-size: 18px;
-			border: 1px solid brown;
-			border-radius: 8px;
-			outline: none;
-			cursor: pointer;
-			width: 175px;
-			padding: 10px;
-			margin-top: 10px;
-			transition: 0.75s ease background-color;
-		}
-
-		button[type = "submit"]:hover {
-			background-color: brown;
-			color: white;
 		}
 	</style>
 </head>
@@ -235,12 +234,16 @@
 		</div>
 	</header>
 
-	<!-- Programs Title -->
+	<!-- Programs Title, Subtitle, and CTA Button -->
 	<div class = "container">
 		<div class = "col-sm-10">
 			<h1 class = "mains">Programs</h1>
 
 			<p class = "mains">Below is a small gallery of my projects, all of which I've developed with guidance from amazing mentors from Khan Academy. It's only a drop in the ocean compared to the entire list. Interested to see more? Visit the <a href = "https://kevinwijaya15.github.io/programs/">programs</a> page.</p>
+		</div>
+
+		<div class = "col-sm-4">
+			<a href = "https://kevinwijaya15.github.io/programs/"><button class = "CTA">View Programs</button></a>
 		</div>
 	</div>
 
@@ -279,7 +282,7 @@
 
 		<!-- Text-->
 		<div class = "col-sm-6">
-			<p align = "justify" style = "padding-bottom: 0;">I mostly develop games, though I believe that coding has much more useful implementations. I've been learning HTML, CSS, and JavaScript (Processing JS and DOM), as well as Python, for a while now - finishing several Computer Science courses on Khan Academy such as
+			<p align = "justify">I mostly develop games, though I believe that coding has much more useful implementations. I've been learning HTML, CSS, and JavaScript (Processing JS and DOM), as well as Python, for a while now - finishing several Computer Science courses on Khan Academy such as
 
 				<a href = "https://www.khanacademy.org/computing/computer-programming/programming" target = "blank">Intro to JS: Drawing & Animation</a>, 
 				<a href = "https://www.khanacademy.org/computing/computer-programming/html-css" target = "blank">Intro to HTML/CSS: Making webpages</a>, 
@@ -289,11 +292,29 @@
 			<br><br>
 
 			More about my experience you'll find <a class = "into" href = "https://www.khanacademy.org/profile/KevinWijaya15" target = "blank">here</a>.</p>
+
+			<a href = "https://kevinwijaya15.github.io/about/"><button class = "CTA">Stalk More</button></a>
 		</div>
 
 		<!-- Image -->
 		<div class = "col-sm-6">
 			<img class = "into" src = "index (into image).png" alt = "coding screenshot">
+		</div>
+	</div>
+
+	<!-- Related Certifications Page -->
+	<div class = "container">
+		<div class = "col-sm-10">
+			<h1>Related Certifications</h1>
+
+			<p>Along my learning proccess, I have received several certificates from different sources. By far, below are the some of the certificates.</p>
+		</div>
+
+		<div class = "col-sm-6 col-sm-offset-3" style = "text-align: center;">
+			<h2 class = "certificate">AI for Oceans</h2>
+			<a class = "certificate" href = "https://code.org" target = "blank">code.org</a>
+
+			<img class = "certificate" src = "certificate code.org.jpg" alt = "certificate from code.org">
 		</div>
 	</div>
 
@@ -334,12 +355,12 @@
 				<div class = "form-row">
 					<div class = "form-group col-sm-5">
 						<label for = "firstName">First Name</label>
-						<input type = "text" id = "firstName" class = "form-control" name = "firstName" placeholder = "What's your first name?" required>
+						<input type = "text" id = "firstName" name = "firstName" placeholder = "What's your first name?" required>
 					</div>
 
 					<div class = "form-group col-sm-5">
 						<label for = "lastName">Last Name</label>
-						<input type = "text" id = "lastName" class = "form-control" placeholder = "What's your last name?" name = "lastName" required>
+						<input type = "text" id = "lastName" placeholder = "What's your last name?" name = "lastName" required>
 					</div>
 				</div>
 
@@ -347,12 +368,12 @@
 				<div class = "form-row">
 					<div class = "form-group col-sm-5">
 						<label for = "email">Email</label>
-						<input type = "email" id = "email" class = "form-control" placeholder = "What's your email address?" name = "email" required>
+						<input type = "email" id = "email" placeholder = "What's your email address?" name = "email" required>
 					</div>
 
 					<div class = "form-group col-sm-5">
 						<label for = "subject">Subject</label>
-						<input type = "text" id = "subject" class = "form-control" placeholder = "What are you interested in?" name = "subject" required>
+						<input type = "text" id = "subject" placeholder = "What are you interested in?" name = "subject" required>
 					</div>
 				</div>
 
@@ -360,14 +381,14 @@
 				<div class = "form-row">
 					<div class = "form-group col-sm-10">
 						<label for = "message">Message</label>
-						<textarea id = "message" class = "form-control" name = "message" cols = "30" rows = "3" placeholder = "What's your message?" required></textarea>
+						<textarea id = "message" name = "message" cols = "30" rows = "3" placeholder = "What's your message?" required></textarea>
 					</div>
 				</div>
 
 				<!-- Recaptcha and Submit Panel -->
 				<div class = "form-row">
 					<div class = "form-group col-sm-10">
-						<div class="g-recaptcha" data-sitekey="6Ld71C0bAAAAAFH4-DXcplcEvv8_4tI5xhsOcF8B" required></div>
+						<div class="g-recaptcha" data-sitekey="6Ld71C0bAAAAAFH4-DXcplcEvv8_4tI5xhsOcF8B" required = "required"></div>
 					</div>
 
 					<div class = "form-group col-sm-10">
@@ -378,54 +399,6 @@
 
 			<div id = "my-form-status"></div>
 		</div>
-
-		<!--
-		<form>
-		  <div class="form-row">
-		    <div class="form-group col-md-6">
-		      <label for="inputEmail4">Email</label>
-		      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-		    </div>
-		    <div class="form-group col-md-6">
-		      <label for="inputPassword4">Password</label>
-		      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-		    </div>
-		  </div>
-		  <div class="form-group">
-		    <label for="inputAddress">Address</label>
-		    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-		  </div>
-		  <div class="form-group">
-		    <label for="inputAddress2">Address 2</label>
-		    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-		  </div>
-		  <div class="form-row">
-		    <div class="form-group col-md-6">
-		      <label for="inputCity">City</label>
-		      <input type="text" class="form-control" id="inputCity">
-		    </div>
-		    <div class="form-group col-md-4">
-		      <label for="inputState">State</label>
-		      <select id="inputState" class="form-control">
-		        <option selected>Choose...</option>
-		        <option>...</option>
-		      </select>
-		    </div>
-		    <div class="form-group col-md-2">
-		      <label for="inputZip">Zip</label>
-		      <input type="text" class="form-control" id="inputZip">
-		    </div>
-		  </div>
-		  <div class="form-group">
-		    <div class="form-check">
-		      <input class="form-check-input" type="checkbox" id="gridCheck">
-		      <label class="form-check-label" for="gridCheck">
-		        Check me out
-		      </label>
-		    </div>
-		  </div>
-		  <button type="submit" class="btn btn-primary">Sign in</button>
-		</form> -->
 	</div>
 
 	<!-- Footer -->
@@ -471,6 +444,9 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- JS for Form Status -->
+	<script type = "text/javascript" src = "index (form).js"></script>
 
 	<!-- JS for Testimonial Animation -->
 	<script type = "text/javascript" src = "index (testimony animation).js"></script>
