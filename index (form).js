@@ -1,12 +1,10 @@
 //get form element
 var form = document.getElementById("my-form");
 
-function handleSubmit(event) {
-  //prevent default
-  event.preventDefault();
+async function handleSubmit(event) {
+  event.preventDefault(); //prevent default
 
-  //determine submission success
-  var status = document.getElementById("my-form-status");
+  var status = document.getElementById("my-form-status"); //get status element
 
   var data = new FormData(event.target);
 
@@ -17,13 +15,23 @@ function handleSubmit(event) {
         'Accept': 'application/json'
     }
   }).then(response => {
+    status.classList.remove("current-status"); //remove the current class
+
     status.innerHTML = "Message sent successfully!";
-    status.className = "success";
+
+    void status.offsetWidth; //add class
+    status.className += "current-status";
+    status.style.color = "green"; //change color
 
     form.reset()
   }).catch(error => {
-    status.innerHTML = "Oops! There was a problem sunding your message.";
-    status.className = "error";
+    status.classList.remove("current-status"); //remove the current class
+
+    status.innerHTML = "Oops! There was a problem.";
+    
+    void status.offsetWidth; //add class
+    status.className += "current-status";
+    status.style.color = "rgb(237, 67, 55)"; //change color
   }); 
 }
 
