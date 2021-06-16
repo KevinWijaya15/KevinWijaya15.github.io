@@ -87,6 +87,7 @@
 		img.certificate {
 			width: 100%;
 			margin-top: 25px;
+			margin-bottom: 25px;
 		}
 
 		/* What They Say Page */
@@ -163,16 +164,16 @@
 			margin-bottom: 25px;
 		}
 
-		input:focus, textarea:focus {
-			outline: none;
-			border-bottom: 2px solid brown;
-			padding-bottom: 0px;
-		}
-
 		textarea {
 			resize: vertical;
 			min-height: 75px;
 			max-height: 150px;
+		}
+
+		input:focus, textarea:focus {
+			outline: none;
+			border-bottom: 2px solid brown;
+			padding-bottom: 0px;
 		}
 
 		#g-recaptcha-response {
@@ -184,6 +185,38 @@
 		    z-index: -999999;
 		    opacity: 0;
 		}
+
+		#my-form-status {
+			font-size: 1.5em;
+			float: right;
+			margin-top: 10%;
+		}
+
+		@media screen and (max-width: 950px) {
+			#my-form-status {
+				float: left;
+			}
+		}
+
+		.current-status {
+			animation: status 4s ease forwards;
+		}
+
+		@keyframes status {
+			0% {
+				opacity: 1;
+				pointer-events: all;
+			}
+
+			90% {
+				opacity: 1;
+				pointer-events: all;
+			}
+
+			100% {
+				opacity: 0;
+				pointer-events: none;
+			}
 	</style>
 </head>
 <body>
@@ -248,7 +281,7 @@
 		</div>
 
 		<div class = "col-sm-4">
-			<a href = "https://kevinwijaya15.github.io/programs/"><button class = "CTA">View Programs</button></a>
+			<a href = "https://kevinwijaya15.github.io/programs/"><button class = "CTA" style = "margin-bottom: 50px;">View Programs</button></a>
 		</div>
 	</div>
 
@@ -312,7 +345,7 @@
 		<div class = "col-sm-10">
 			<h1>Related Certifications</h1>
 
-			<p>Along my learning proccess, I have received several certificates from different sources. By far, below are the some of the certificates.</p>
+			<p style = "margin-bottom: 0;">Along my learning proccess, I have received several certificates from different sources. By far, below are the some of the certificates.</p>
 		</div>
 
 		<div class = "col-sm-6 col-sm-offset-3" style = "text-align: center;">
@@ -349,21 +382,22 @@
 	<!-- Contact Me Page -->
 	<div class = "container">
 		<div class = "col-sm-10">
-			<h1 style = "margin-top: 150px;">Contact Me</h1>
+			<h1 style = "margin-top: 100px;">Contact Me</h1>
 
 			<p>I'm very interested in hearing from you. Feel free to drop me a line by filling the form below if you have any request, question, idea, or feedback.</p>
 		</div>
 
 		<div class = "col-sm-8 col-sm-offset-2">
-			<form action = "https://formspree.io/f/mjvjrwbj" method = "POST" id = "my-form">
+			<!-- !!!!! -->
+			<form action = "https://formspree.io/f/mjvjrwbjD" method = "POST" id = "my-form">
 				<!-- First Name and Last Name Panel -->
 				<div class = "form-row">
-					<div class = "form-group col-sm-5">
+					<div class = "form-group col-md-5">
 						<label for = "firstName">First Name</label>
 						<input type = "text" id = "firstName" name = "firstName" placeholder = "What's your first name?" required>
 					</div>
 
-					<div class = "form-group col-sm-5">
+					<div class = "form-group col-md-5">
 						<label for = "lastName">Last Name</label>
 						<input type = "text" id = "lastName" placeholder = "What's your last name?" name = "lastName" required>
 					</div>
@@ -371,12 +405,12 @@
 
 				<!-- Email and Subject Panel -->
 				<div class = "form-row">
-					<div class = "form-group col-sm-5">
+					<div class = "form-group col-md-5">
 						<label for = "email">Email</label>
 						<input type = "email" id = "email" placeholder = "What's your email address?" name = "email" required>
 					</div>
 
-					<div class = "form-group col-sm-5">
+					<div class = "form-group col-md-5">
 						<label for = "subject">Subject</label>
 						<input type = "text" id = "subject" placeholder = "What are you interested in?" name = "subject" required>
 					</div>
@@ -384,25 +418,32 @@
 
 				<!-- Message Panel -->
 				<div class = "form-row">
-					<div class = "form-group col-sm-10">
+					<div class = "form-group col-md-10">
 						<label for = "message">Message</label>
 						<textarea id = "message" name = "message" cols = "30" rows = "3" placeholder = "What's your message?" required></textarea>
 					</div>
 				</div>
 
-				<!-- Recaptcha and Submit Panel -->
+				<!-- Recaptcha Panel -->
 				<div class = "form-row">
-					<div class = "form-group col-sm-10">
+					<div class = "form-group col-md-10">
 						<div class="g-recaptcha" data-sitekey="6Ld71C0bAAAAAFH4-DXcplcEvv8_4tI5xhsOcF8B" required = "required"></div>
 					</div>
+				</div>
 
-					<div class = "form-group col-sm-10">
-						<button type = "submit">Send Message</button>
+				<!-- Submit and Status Panel -->
+				<div class = "form-row">
+					<!-- Submit Button -->
+					<div class = "form-group col-md-4">
+						<button type = "submit" style = "margin-top: 25px;">Send Message</button>
+					</div>
+
+					<!-- Status Bar -->
+					<div class = "form-group col-md-6">
+						<p id = "my-form-status"></p>
 					</div>
 				</div>
 			</form>
-
-			<div id = "my-form-status"></div>
 		</div>
 	</div>
 
@@ -459,12 +500,11 @@
 	<!-- Recaptcha Required Script -->
 	<script>
 		window.onload = function() {
+	   		var $recaptcha = document.querySelector('#g-recaptcha-response');
 
-	   		 var $recaptcha = document.querySelector('#g-recaptcha-response');
-
-	    		if($recaptcha) {
-	        		$recaptcha.setAttribute("required", "required");
-	    		}
+    		if($recaptcha) {
+        		$recaptcha.setAttribute("required", "required");
+    		}
 		};
 	</script>
 </body>
