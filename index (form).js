@@ -23,6 +23,7 @@ async function handleSubmit(event) {
     status.className += "current-status";
     status.style.color = "green"; //change color
 
+    grecaptcha.reset(); //reset recaptcha and form
     form.reset()
   }).catch(error => {
     status.classList.remove("current-status"); //remove the current class
@@ -32,6 +33,8 @@ async function handleSubmit(event) {
     void status.offsetWidth; //add class
     status.className += "current-status";
     status.style.color = "rgb(237, 67, 55)"; //change color
+
+    grecaptcha.reset(); //reset recaptcha
   }); 
 }
 
