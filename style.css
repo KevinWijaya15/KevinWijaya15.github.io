@@ -37,7 +37,7 @@ a:hover {
 	text-decoration: underline;
 }
 
-button {
+button.CTA {
 	background-color: brown;
 	color: white;
 	font-size: 18px;
@@ -47,17 +47,13 @@ button {
 	cursor: pointer;
 	width: 175px;
 	padding: 10px;
-	margin-top: 10px;
+	margin-top: -25px;
 	transition: 0.75s ease background-color;
 }
 
-button:hover {
+button.CTA:hover {
 	background-color: transparent;
 	color: brown;
-}
-
-button.CTA {
-	margin-top: -25px;
 }
 
 /* Navbar */
