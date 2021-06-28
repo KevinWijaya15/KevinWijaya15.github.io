@@ -69,10 +69,16 @@
 			height: 100vh;
 		}
 
+		div.intro {
+			position: absolute;
+			top: 30%;
+			translate: transformY(-50%);
+		}
+
 		h1.intro {
 			font-family: 'Arimo', sans-serif;
 			font-size: 7.5em;
-			margin-top: 30%;
+			margin-top: 0;
 		}
 
 		p.intro {
@@ -83,18 +89,16 @@
 		}
 
 		@media (max-width: 768px) {
+			div.intro {
+				top: 40%;
+			}
+
 			h1.intro {
 				font-size: 6em;
-				margin-top: 50%;
 			}
 
 			p.intro {
 				font-size: 1.15em;
-			}
-
-			.col-lg-3 {
-				width: 75%;
-				margin-left: 12.5%;
 			}
 		}
 
@@ -105,6 +109,15 @@
 
 		div.col-lg-3 {
 			padding: 0px;
+		}
+
+
+		@media (max-width: 768px) {
+			div.col-lg-3 {
+				width: 75%;
+				margin-left: 12.5%;
+				margin-bottom: 25px;
+			}
 		}
 
 		/* What I'm Into Page */
@@ -267,7 +280,7 @@
 		<!-- Intro Page -->
 		<div class = "container">
 			<div class = "row">
-				<div class = "col-sm-6">
+				<div class = "col-sm-6 intro">
 					<h1 class = "intro">Hi, <br> I'm Kevin</h1>
 
 					<p class = "intro">HTML | CSS | JS</p>
