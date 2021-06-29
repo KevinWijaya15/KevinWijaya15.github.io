@@ -1,17 +1,6 @@
 /* Import Google Fonts for Headings */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
 
-/* Zoom for mobile */
-@viewport {
-	zoom: 1.0;
-	width: extend-to-zoom;
-}
-
-@-ms-viewport {
-	zoom: 1.0;
-	width: extend-to-zoom;
-}
-
 /* Defaults */
 h1, h2 {
 	font-family: 'Raleway', sans-serif;
