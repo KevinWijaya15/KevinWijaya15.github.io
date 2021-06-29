@@ -1,19 +1,8 @@
 /* Import Google Fonts for Headings */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
 
-/* Zoom for responsiveness */
-@viewport {
-	zoom: 1.0;
-	width: extend-to-zoom;
-} 
-
-@-ms-viewport {
-	zoom: 1.0;
-	width: extend-to-zoom;
-}
-
 /* Defaults */
-h1 {
+h1, h2 {
 	font-family: 'Raleway', sans-serif;
 	font-size: 3em;
 	margin-top: 75px;
@@ -21,6 +10,7 @@ h1 {
 }
 
 p {
+	text-align: justify;
 	font-family: sans-serif;
 	font-size: 1.2em;
 	line-height: 1.75em;
@@ -32,9 +22,14 @@ a {
 	color: brown;
 }
 
-a:hover {
+a:hover, a:focus, a:active {
 	color: brown;
 	text-decoration: underline;
+	outline: none;
+}
+
+img.full {
+	width: 100%;
 }
 
 button.CTA {
@@ -48,7 +43,7 @@ button.CTA {
 	width: 175px;
 	padding: 10px;
 	margin-top: -25px;
-	transition: 0.75s ease background-color;
+	transition: 0.5s ease background-color;
 }
 
 button.CTA:hover {
@@ -76,21 +71,34 @@ nav {
 	background-color: brown;
 }
 
+li a.nav-link {
+	color: black;
+	font-family: 'Raleway', sans-serif;
+	margin-top: 16px;
+}
+
+li a.nav-link:hover, li a.nav-link:focus, li a.nav-link:active {
+	background-color: transparent;
+	color: brown;
+}
+
 ul.dropdown-menu {
 	border: none;
 	border-top: 3px solid brown;
 	border-radius: 0;
+	animation: fade-in 0.5s ease-out;
 }
 
-li a.nav-link {
-	color: black;
-	font-size: 1.2em;
-	margin-top: 16px;
-}
+@keyframes fade-in {
+	0% {
+		opacity: 0%;
+		transform: translateY(50px);
+	}
 
-li a.nav-link:hover {
-	background-color: transparent;
-	color: brown;
+	100% {
+		opacity: 100%;
+		transform: translateY(0);
+	}
 }
 
 li a.dropdown-link {
@@ -120,22 +128,25 @@ li a.dropdown-link {
 }
 
 h3.footer-title {
+	font-weight: bold;
+	font-size: 1.5em;
 	margin-top: 75px;
 	margin-bottom: 30px;
 }
 
 p.footer-link {
-	padding-bottom: 5px;
+    padding-bottom: 5px;
 }
 
 p a.footer-link {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9em;
     text-decoration: none;
 }
 
-p a.footer-link:hover {
-    color: rgb(150, 150, 150);
+p a.footer-link:hover,  a.footer-link:focus,  a.footer-link:active {
+    color: rosybrown;
 }
 
 img.footer-link {
