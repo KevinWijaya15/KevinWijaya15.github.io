@@ -23,13 +23,13 @@ a {
 }
 
 a:hover, a:focus, a:active {
-	color: brown;
-	text-decoration: underline;
+	color: orangered;
+	text-decoration: none;
 	outline: none;
 }
 
 div.col-sm-3 {
-	padding: 0px;
+	padding: 0;
 }
 
 img.full {
