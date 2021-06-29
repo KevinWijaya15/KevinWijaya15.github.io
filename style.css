@@ -28,6 +28,10 @@ a:hover, a:focus, a:active {
 	outline: none;
 }
 
+div.col-sm-3 {
+	padding: 0px;
+}
+
 img.full {
 	width: 100%;
 }
@@ -111,11 +115,6 @@ li a.dropdown-link {
 /* Content */
 .top {
 	margin-top: 150px;
-}
-
-.bottom {
-	padding-bottom: 0;
-	margin-bottom: 0;
 }
 
 /* Footer */
