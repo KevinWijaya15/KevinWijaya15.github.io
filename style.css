@@ -28,10 +28,6 @@ a:hover, a:focus, a:active {
 	outline: none;
 }
 
-div.col-sm-3 {
-	padding: 0;
-}
-
 img.full {
 	width: 100%;
 }
