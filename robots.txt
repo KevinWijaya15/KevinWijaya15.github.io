@@ -1,0 +1,5 @@
+User-agent: *
+
+Allow: /
+
+Sitemap: https://kevinwijaya15.github.io/sitemap.xml
