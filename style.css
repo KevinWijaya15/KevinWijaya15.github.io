@@ -28,6 +28,16 @@ a:hover, a:focus, a:active {
 	outline: none;
 }
 
+::selection { /* for selected texts */
+  color: white;
+  background: rosybrown;
+}
+
+::-moz-selection { 
+	color: white;
+	background: rosybrown;
+}
+
 img.full {
 	width: 100%;
 }
