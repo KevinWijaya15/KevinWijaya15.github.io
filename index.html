@@ -29,6 +29,11 @@
 		/* Import Google Fonts for intro title */
 		@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@700&display=swap');
 
+		/* Smooth Scroll */
+		html {
+			scroll-behavior: smooth;
+		}
+
 		/* Cover Page */
 		.header {
 			height: 100vh;
@@ -98,12 +103,18 @@
 			height: 475px;
 		}
 
-		h3.blog {
+		a h3.blog {
 			color: brown;
 			font-family: 'Raleway', sans-serif;
 			font-weight: bold;
 			line-height: 1.75em;
 			margin-top: 25px;
+		}
+
+		a h3.blog:hover, a h3.blog:focus, a h3.blog:active {
+			color: orangered;
+			text-decoration: none;
+			outline: none;
 		}
 
 		p.blog-date {
@@ -509,9 +520,11 @@
 		<!-- Blogs Panels -->
 		<div class = "col-sm-6">
 			<div class = "blog" data-aos="fade-up">
-				<img class = "full" src = "blog programming journey image.webp" alt = "programming">
+				<a href = "https://kevinwijaya15.github.io/programming-a-journey-to-the-top/">
+					<img class = "full" src = "blog programming journey image.webp" alt = "programming">
 
-				<h3 class = "blog">Programming: a Journey to the Top</h3>
+					<h3 class = "blog">Programming: a Journey to the Top</h3>
+				</a>
 
 				<p class = "blog-date">June 10, 2021</p>
 
@@ -521,9 +534,11 @@
 
 		<div class = "col-sm-6">
 			<div class = "blog" data-aos="fade-up">
-				<img class = "full" src = "blog flappy bird image.webp" alt = "flappy bird">
+				<a href = "https://kevinwijaya15.github.io/the-logic-behind-flappy-bird/">
+					<img class = "full" src = "blog flappy bird image.webp" alt = "flappy bird">
 
-				<h3 class = "blog">The Logic Behind Flappy Bird</h3>
+					<h3 class = "blog">The Logic Behind Flappy Bird</h3>
+				</a>
 
 				<p class = "blog-date">June 11, 2021</p>
 
@@ -533,9 +548,11 @@
 
 		<div class = "col-sm-6">
 			<div class = "blog" data-aos="fade-up">
-				<img class = "full" src = "blog spotify image.webp" alt = "listening to music">
+				<a href = "https://kevinwijaya15.github.io/how-i-created-my-own-spotify/">
+					<img class = "full" src = "blog spotify image.webp" alt = "listening to music">
 
-				<h3 class = "blog">How I Created My Own Spotify</h3>
+					<h3 class = "blog">How I Created My Own Spotify</h3>
+				</a>
 
 				<p class = "blog-date">June 20, 2021</p>
 
@@ -545,9 +562,11 @@
 
 		<div class = "col-sm-6">
 			<div class = "blog" data-aos="fade-up">
-				<img class = "full" src = "blog web dev tools image.webp" alt = "website development">
+				<a href = "https://kevinwijaya15.github.io/free-web-development-tools-you-dont-want-to-miss/">
+					<img class = "full" src = "blog web dev tools image.webp" alt = "website development">
 
-				<h3 class = "blog">Free Web Development Tools You Don’t Want to Miss</h3>
+					<h3 class = "blog">Free Web Development Tools You Don’t Want to Miss</h3>
+				</a>
 
 				<p class = "blog-date">June 21, 2021</p>
 
