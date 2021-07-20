@@ -1,92 +1,115 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
 
-
-<url>
-  <loc>https://kevinwijaya15.github.io/</loc>
-  <lastmod>2021-07-02T09:36:16+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://kevinwijaya15.github.io/about/</loc>
-  <lastmod>2021-07-01T14:03:54+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://kevinwijaya15.github.io/projects/</loc>
-  <lastmod>2021-07-02T08:50:23+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://kevinwijaya15.github.io/blog/</loc>
-  <lastmod>2021-07-01T14:04:43+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://kevinwijaya15.github.io/piano-tiles/</loc>
-  <lastmod>2021-07-02T04:55:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://kevinwijaya15.github.io/rock-paper-scissor-ai/</loc>
-  <lastmod>2021-07-02T04:56:34+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://kevinwijaya15.github.io/spotify-sound/</loc>
-  <lastmod>2021-07-02T04:57:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://kevinwijaya15.github.io/remember-not/</loc>
-  <lastmod>2021-07-03T02:54:45+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://kevinwijaya15.github.io/highway-drivers/</loc>
-  <lastmod>2021-07-02T04:52:47+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://kevinwijaya15.github.io/tic-tac-toe-ai/</loc>
-  <lastmod>2021-07-02T04:58:03+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://kevinwijaya15.github.io/blow-mindeth/</loc>
-  <lastmod>2021-07-02T05:00:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://kevinwijaya15.github.io/knife-dash/</loc>
-  <lastmod>2021-07-02T04:53:23+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://kevinwijaya15.github.io/ninja-jumper/</loc>
-  <lastmod>2021-07-02T04:54:45+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://kevinwijaya15.github.io/flappy-bird/</loc>
-  <lastmod>2021-07-02T05:05:28+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://kevinwijaya15.github.io/self-driving-car/</loc>
-  <lastmod>2021-07-02T04:57:04+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://kevinwijaya15.github.io/nature-defined/</loc>
-  <lastmod>2021-07-02T04:54:04+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
-
+      <url>
+            <loc>https://kevinwijaya15.github.io/</loc>
+            <lastmod>2021-07-20T04:00:00+00:00</lastmod>
+            <priority>1.00</priority>
+      </url>
+      <url>
+            <loc>https://kevinwijaya15.github.io/about/</loc>
+            <lastmod>2021-07-18T12:01:19+00:00</lastmod>
+            <priority>0.80</priority>
+      </url>
+      <url>
+            <loc>https://kevinwijaya15.github.io/projects/</loc>
+            <lastmod>2021-07-18T11:50:36+00:00</lastmod>
+            <priority>0.80</priority>
+      </url>
+      <url>
+            <loc>https://kevinwijaya15.github.io/blog/</loc>
+            <lastmod>2021-07-19T06:49:45+00:00</lastmod>
+            <priority>0.80</priority>
+      </url>
+      <url>
+            <loc>https://kevinwijaya15.github.io/piano-tiles/</loc>
+            <lastmod>2021-07-16T08:31:32+00:00</lastmod>
+            <priority>0.80</priority>
+      </url>
+      <url>
+            <loc>https://kevinwijaya15.github.io/rock-paper-scissor-ai/</loc>
+            <lastmod>2021-07-16T08:37:16+00:00</lastmod>
+            <priority>0.80</priority>
+      </url>
+      <url>
+            <loc>https://kevinwijaya15.github.io/spotify-sound/</loc>
+            <lastmod>2021-07-16T08:42:20+00:00</lastmod>
+            <priority>0.80</priority>
+      </url>
+      <url>
+            <loc>https://kevinwijaya15.github.io/flappy-bird/</loc>
+            <lastmod>2021-07-16T06:04:56+00:00</lastmod>
+            <priority>0.80</priority>
+      </url>
+      <url>
+            <loc>https://kevinwijaya15.github.io/highway-drivers/</loc>
+            <lastmod>2021-07-16T06:07:36+00:00</lastmod>
+            <priority>0.80</priority>
+      </url>
+      <url>
+            <loc>https://kevinwijaya15.github.io/knife-dash/</loc>
+            <lastmod>2021-07-16T06:24:32+00:00</lastmod>
+            <priority>0.80</priority>
+      </url>
+      <url>
+            <loc>https://kevinwijaya15.github.io/nature-defined/</loc>
+            <lastmod>2021-07-16T08:31:11+00:00</lastmod>
+            <priority>0.80</priority>
+      </url>
+      <url>
+            <loc>https://kevinwijaya15.github.io/the-final-drug/</loc>
+            <lastmod>2021-07-16T08:43:06+00:00</lastmod>
+            <priority>0.80</priority>
+      </url>
+      <url>
+            <loc>https://kevinwijaya15.github.io/ninja-jumper/</loc>
+            <lastmod>2021-07-16T08:31:17+00:00</lastmod>
+            <priority>0.80</priority>
+      </url>
+      <url>
+            <loc>https://kevinwijaya15.github.io/blow-mindeth/</loc>
+            <lastmod>2021-07-16T05:35:28+00:00</lastmod>
+            <priority>0.80</priority>
+      </url>
+      <url>
+            <loc>https://kevinwijaya15.github.io/tic-tac-toe-ai/</loc>
+            <lastmod>2021-07-16T08:42:45+00:00</lastmod>
+            <priority>0.80</priority>
+      </url>
+      <url>
+            <loc>https://kevinwijaya15.github.io/remember-not/</loc>
+            <lastmod>2021-07-16T08:37:08+00:00</lastmod>
+            <priority>0.80</priority>
+      </url>
+      <url>
+            <loc>https://kevinwijaya15.github.io/programming-a-journey-to-the-top/</loc>
+            <lastmod>2021-07-18T03:44:30+00:00</lastmod>
+            <priority>0.80</priority>
+      </url>
+      <url>
+            <loc>https://kevinwijaya15.github.io/the-logic-behind-flappy-bird/</loc>
+            <lastmod>2021-07-18T04:51:32+00:00</lastmod>
+            <priority>0.80</priority>
+      </url>
+      <url>
+            <loc>https://kevinwijaya15.github.io/how-i-created-my-own-spotify/</loc>
+            <lastmod>2021-07-18T02:50:19+00:00</lastmod>
+            <priority>0.80</priority>
+      </url>
+      <url>
+            <loc>https://kevinwijaya15.github.io/free-web-development-tools-you-dont-want-to-miss/</loc>
+            <lastmod>2021-07-18T05:25:11+00:00</lastmod>
+            <priority>0.80</priority>
+      </url>
+      <url>
+            <loc>https://kevinwijaya15.github.io/self-driving-car/</loc>
+            <lastmod>2021-07-16T08:37:27+00:00</lastmod>
+            <priority>0.64</priority>
+      </url>
+      <url>
+            <loc>https://kevinwijaya15.github.io/seo-search-engine-optimization/</loc>
+            <lastmod>2021-07-18T03:28:03+00:00</lastmod>
+            <priority>0.64</priority>
+      </url>
+ 
 </urlset>
