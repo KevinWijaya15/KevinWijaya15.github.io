@@ -1,9 +1,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
-
+      
       <url>
             <loc>https://kevinwijaya15.github.io/</loc>
-            <lastmod>2021-07-20T04:00:00+00:00</lastmod>
+            <lastmod>2021-07-20T04:23:01+00:00</lastmod>
             <priority>1.00</priority>
       </url>
       <url>
@@ -19,66 +19,6 @@
       <url>
             <loc>https://kevinwijaya15.github.io/blog/</loc>
             <lastmod>2021-07-19T06:49:45+00:00</lastmod>
-            <priority>0.80</priority>
-      </url>
-      <url>
-            <loc>https://kevinwijaya15.github.io/piano-tiles/</loc>
-            <lastmod>2021-07-16T08:31:32+00:00</lastmod>
-            <priority>0.80</priority>
-      </url>
-      <url>
-            <loc>https://kevinwijaya15.github.io/rock-paper-scissor-ai/</loc>
-            <lastmod>2021-07-16T08:37:16+00:00</lastmod>
-            <priority>0.80</priority>
-      </url>
-      <url>
-            <loc>https://kevinwijaya15.github.io/spotify-sound/</loc>
-            <lastmod>2021-07-16T08:42:20+00:00</lastmod>
-            <priority>0.80</priority>
-      </url>
-      <url>
-            <loc>https://kevinwijaya15.github.io/flappy-bird/</loc>
-            <lastmod>2021-07-16T06:04:56+00:00</lastmod>
-            <priority>0.80</priority>
-      </url>
-      <url>
-            <loc>https://kevinwijaya15.github.io/highway-drivers/</loc>
-            <lastmod>2021-07-16T06:07:36+00:00</lastmod>
-            <priority>0.80</priority>
-      </url>
-      <url>
-            <loc>https://kevinwijaya15.github.io/knife-dash/</loc>
-            <lastmod>2021-07-16T06:24:32+00:00</lastmod>
-            <priority>0.80</priority>
-      </url>
-      <url>
-            <loc>https://kevinwijaya15.github.io/nature-defined/</loc>
-            <lastmod>2021-07-16T08:31:11+00:00</lastmod>
-            <priority>0.80</priority>
-      </url>
-      <url>
-            <loc>https://kevinwijaya15.github.io/the-final-drug/</loc>
-            <lastmod>2021-07-16T08:43:06+00:00</lastmod>
-            <priority>0.80</priority>
-      </url>
-      <url>
-            <loc>https://kevinwijaya15.github.io/ninja-jumper/</loc>
-            <lastmod>2021-07-16T08:31:17+00:00</lastmod>
-            <priority>0.80</priority>
-      </url>
-      <url>
-            <loc>https://kevinwijaya15.github.io/blow-mindeth/</loc>
-            <lastmod>2021-07-16T05:35:28+00:00</lastmod>
-            <priority>0.80</priority>
-      </url>
-      <url>
-            <loc>https://kevinwijaya15.github.io/tic-tac-toe-ai/</loc>
-            <lastmod>2021-07-16T08:42:45+00:00</lastmod>
-            <priority>0.80</priority>
-      </url>
-      <url>
-            <loc>https://kevinwijaya15.github.io/remember-not/</loc>
-            <lastmod>2021-07-16T08:37:08+00:00</lastmod>
             <priority>0.80</priority>
       </url>
       <url>
@@ -102,14 +42,9 @@
             <priority>0.80</priority>
       </url>
       <url>
-            <loc>https://kevinwijaya15.github.io/self-driving-car/</loc>
-            <lastmod>2021-07-16T08:37:27+00:00</lastmod>
-            <priority>0.64</priority>
-      </url>
-      <url>
             <loc>https://kevinwijaya15.github.io/seo-search-engine-optimization/</loc>
             <lastmod>2021-07-18T03:28:03+00:00</lastmod>
             <priority>0.64</priority>
       </url>
- 
+      
 </urlset>
