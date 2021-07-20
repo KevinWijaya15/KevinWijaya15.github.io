@@ -1,5 +1,17 @@
 User-agent: *
 
-Allow: /
+Disallow: /blow-mindeth/
+Disallow: /flappy-bird/
+Disallow: /highway-drivers/
+Disallow: /knife-dash/
+Disallow: /nature-defined/
+Disallow: /ninja-jumper/
+Disallow: /piano-tiles/
+Disallow: /remember-not/
+Disallow: /rock-paper-scissor-ai/
+Disallow: /self-driving-car/
+Disallow: /spotify-sound/
+Disallow: /the-final-drug/
+Disallow: /tic-tac-toe-ai/
 
 Sitemap: https://kevinwijaya15.github.io/sitemap.xml
