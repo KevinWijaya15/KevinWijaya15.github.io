@@ -35,9 +35,7 @@
 		}
 
 		div.intro {
-			position: absolute;
-			top: 25%;
-			translate: transformY(-50%);
+			margin-top: 15%;
 		}
 
 		h1 {
@@ -59,7 +57,7 @@
 			}
 		}
 
-		p.intro {
+		p.subtitle {
 			color: rgb(85, 85, 85);
 			font-size: 1.5em;
 			letter-spacing: 7px;
@@ -77,6 +75,38 @@
 				opacity: 100%;
 				transform: translateX(0);
 			}
+		}
+
+		p.cta {
+			margin-top: 75px;
+			animation: fade-up 1.25s ease;
+		}
+
+		@keyframes fade-up {
+			0% {
+				opacity: 0;
+				transform: translateY(100px);
+			}
+
+			100% {
+				opacity: 100%;
+				transform: translateY(0);
+			}
+		}
+
+		p.cta a {
+			font-weight: bold;
+			font-size: 1.25em;
+		}
+
+		p.cta span {
+			padding: 0 15px 0 15px;
+		}
+
+		img.cover {
+			border-radius: 25px; 
+			height: 110vh; 
+			opacity: 75%;
 		}
 
 		/* Projects Page */
@@ -247,7 +277,46 @@
 		}
 
 		/* Responsive CSS */
-		@media (max-width: 950px) {
+		@media (max-width: 1150px) {
+			h1 {
+				font-size: 6em;
+			}
+		}
+
+		@media (max-width: 1110px) {
+			/* Cover Page */
+			div.intro {
+				margin-top: 20%;
+			}
+
+			h1 {
+				font-size: 6em;
+			}
+
+			img.cover {
+				height: 75vh;
+				margin-top: 55%;
+			}
+		}
+
+		@media (max-width: 1000px) {
+			/* Cover Page */
+			div.intro {
+				margin-top: 25%;
+			}
+
+			h1 {
+				font-size: 5em;
+			}
+		}
+
+		@media (max-width: 975px) {
+			/* Cover Page */
+			img.cover {
+				margin-top: 65%;
+				height: 65vh;
+			}
+
 			/* Contact Page */
 			#my-form-status {
 				float: left;
@@ -257,15 +326,20 @@
 		@media (max-width: 768px) {
 			/* Cover Page */
 			div.intro {
-				top: 40%;
+				margin-top: 35%;
 			}
 
 			h1 {
-				font-size: 6em;
+				font-size: 4.75em;
 			}
 
 			p.intro {
-				font-size: 1.15em;
+				font-size: 1em;
+			}
+
+			img.cover {
+				height: 0;
+				visibility: hidden;
 			}
 
 			/* Projects Page */
@@ -294,75 +368,83 @@
 	</style>
 </head>
 <body>
-	<header>
-		<!-- Navigation -->
-		<nav class = "navbar navbar-style" style = "position: fixed;">
-			<div class = "container">
-				<!-- Navigation Header -->
-				<div class = "navbar-header">
-					<!-- Navigation Button -->
-					<button type = "button" class = "navbar-toggle" data-toggle = "collapse" data-target = "#micon" style = "margin-top: 20px;">
-						<span class = "icon-bar"></span>
-						<span class = "icon-bar"></span>
-						<span class = "icon-bar"></span>
-					</button>
+	<!-- Navigation -->
+	<nav class = "navbar navbar-style" style = "position: fixed; top: 0;">
+		<div class = "container">
+			<!-- Navigation Header -->
+			<div class = "navbar-header">
+				<!-- Navigation Button -->
+				<button type = "button" class = "navbar-toggle" data-toggle = "collapse" data-target = "#micon" style = "margin-top: 20px;">
+					<span class = "icon-bar"></span>
+					<span class = "icon-bar"></span>
+					<span class = "icon-bar"></span>
+				</button>
 
-					<!-- Kevin Logo -->
-					<a href = "https://kevinwijaya15.github.io"><img src = "kevin logo.png" class = "logo" alt = "website logo"></a>
-				</div>
-
-				<!-- Navigation Selections -->
-				<div class = "collapse navbar-collapse" id = "micon">
-					<ul class = "nav navbar-nav navbar-right">
-						<!-- About Button -->
-						<li>
-							<a href = "https://kevinwijaya15.github.io/about/" class = "nav-link">About</a>
-						</li>
-
-						<!-- Projects Button -->
-						<li>
-							<a href = "https://kevinwijaya15.github.io/projects/" class = "nav-link">Projects</a>
-						</li>
-
-						<!-- Blog Button -->
-						<li>
-							<a href = "https://kevinwijaya15.github.io/blog/" class = "nav-link">Blog</a>
-						</li>
-
-						<!-- Social Dropdown Button -->
-						<li class = "dropdown">
-							<a href = "#" class = "dropdown-toggle nav-link" data-toggle = "dropdown" href = "#">Social <b class="caret"></b></a>
-
-							<ul class="dropdown-menu">
-								<!-- Khan Academy Button -->
-						    	<li>
-						    		<a href = "https://www.khanacademy.org/profile/KevinWijaya15/" class = "dropdown-link" target = "blank">Khan Academy</a>
-						    	</li>
-
-						    	<!-- Github Button -->
-						    	<li>
-						    		<a href = "https://github.com/KevinWijaya15" class = "dropdown-link" target = "blank">Github</a>
-						    	</li>
-
-						    	<!-- Instagram Button -->
-						    	<li>
-						    		<a href = "https://www.instagram.com/_kw59" class = "dropdown-link" target = "blank">Instagram</a>
-						    	</li>
-						    </ul>
-						</li>
-					</ul>
-				</div>
+				<!-- Kevin Logo -->
+				<a href = "https://kevinwijaya15.github.io"><img src = "kevin logo.png" class = "logo" alt = "website logo"></a>
 			</div>
-		</nav>
 
+			<!-- Navigation Selections -->
+			<div class = "collapse navbar-collapse" id = "micon">
+				<ul class = "nav navbar-nav navbar-right">
+					<!-- About Button -->
+					<li>
+						<a href = "https://kevinwijaya15.github.io/about/" class = "nav-link">About</a>
+					</li>
+
+					<!-- Projects Button -->
+					<li>
+						<a href = "https://kevinwijaya15.github.io/projects/" class = "nav-link">Projects</a>
+					</li>
+
+					<!-- Blog Button -->
+					<li>
+						<a href = "https://kevinwijaya15.github.io/blog/" class = "nav-link">Blog</a>
+					</li>
+
+					<!-- Social Dropdown Button -->
+					<li class = "dropdown">
+						<a href = "#" class = "dropdown-toggle nav-link" data-toggle = "dropdown" href = "#">Social <b class="caret"></b></a>
+
+						<ul class="dropdown-menu">
+							<!-- Khan Academy Button -->
+					    	<li>
+					    		<a href = "https://www.khanacademy.org/profile/KevinWijaya15/" class = "dropdown-link" target = "blank">Khan Academy</a>
+					    	</li>
+
+					    	<!-- Github Button -->
+					    	<li>
+					    		<a href = "https://github.com/KevinWijaya15" class = "dropdown-link" target = "blank">Github</a>
+					    	</li>
+
+					    	<!-- Instagram Button -->
+					    	<li>
+					    		<a href = "https://www.instagram.com/_kw59" class = "dropdown-link" target = "blank">Instagram</a>
+					    	</li>
+					    </ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<header>
 		<!-- Intro Page -->
 		<div class = "container">
-			<div class = "row">
-				<div class = "col-sm-6 intro">
-					<h1>Hi, <br> I'm Kevin</h1>
+			<div class = "col-sm-8 intro">
+				<h1>Hi, I'm Kevin</h1>
 
-					<p class = "intro">HTML | CSS | JS</p>
-				</div>
+				<p class = "subtitle">HTML | CSS | JS</p>
+
+				<p class = "cta">
+					<a href = "https://kevinwijaya15.github.io/projects/">View Projects</a> 
+					<span>or</span> 
+					<a href = "https://kevinwijaya15.github.io/about/">Read About Me</a>
+				</p>
+			</div>
+
+			<div class = "col-sm-4">
+				<img src = "index (cover image).webp" class = "cover" alt = "image of kevin wijaya">
 			</div>
 		</div>
 	</header>
@@ -370,7 +452,7 @@
 	<!-- Projects Title, Subtitle, and CTA Button -->
 	<div class = "container" data-aos="fade-right">
 		<div class = "col-sm-10">
-			<h2>Projects</h2>
+			<h2 style = "margin-top: 75px;">Projects</h2>
 
 			<p>
 				Below is a small gallery of my projects, all of which I've developed with the guidance from amazing mentors from Khan Academy. It's only a drop in the ocean compared to the entire list; visit the <a href = "https://kevinwijaya15.github.io/projects/">projects</a> page to see more projects.
