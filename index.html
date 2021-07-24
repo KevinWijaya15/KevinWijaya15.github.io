@@ -19,11 +19,8 @@
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-	<!-- Animate on Scroll Library (taken from github) -->
-	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
-
 	<!-- Main CSS -->
-	<link rel = "stylesheet" type = "text/css" href = "https://drive.google.com/uc?export=view&id=1qlnHCNMllU-ySCVxYGZJpuTH6ETSOvaz">
+	<link rel = "stylesheet" type = "text/css" href = "CSS (Drive)/style.css"> <!-- https://drive.google.com/uc?export=view&id=1qlnHCNMllU-ySCVxYGZJpuTH6ETSOvaz -->
 
 	<style>
 		/* Import Google Fonts for intro title */
@@ -35,7 +32,9 @@
 		}
 
 		div.intro {
-			margin-top: 15%;
+			position: absolute;
+			top: 50vh;
+			transform: translateY(-35%);
 		}
 
 		h1 {
@@ -77,36 +76,14 @@
 			}
 		}
 
-		p.cta {
-			margin-top: 75px;
-			animation: fade-up 1.25s ease;
-		}
-
-		@keyframes fade-up {
-			0% {
-				opacity: 0;
-				transform: translateY(100px);
-			}
-
-			100% {
-				opacity: 100%;
-				transform: translateY(0);
-			}
-		}
-
-		p.cta a {
-			font-weight: bold;
-			font-size: 1.25em;
-		}
-
-		p.cta span {
-			padding: 0 15px 0 15px;
-		}
-
 		img.cover {
-			border-radius: 25px; 
-			height: 110vh; 
-			opacity: 75%;
+			position: absolute;
+			right: 0;
+			top: 50vh;
+			transform: translateY(-40%);
+			border-radius: 10px;
+			width: 75%;
+			opacity: 65%;
 			animation: fade-in 1.25s ease-in;
 		}
 
@@ -116,13 +93,22 @@
 			}
 
 			100% {
-				opacity: 75%;
+				opacity: 65%;
 			}
 		}
 
 		/* Projects Page */
 		div.projects-image {
 			padding: 0;
+		}
+
+		div.projects-image a img {
+			opacity: 65%;
+			transition: 0.15s opacity;
+		}
+
+		div.projects-image a img:hover {
+			opacity: 100%;
 		}
 
 		/* What I'm Into Page */
@@ -288,46 +274,25 @@
 		}
 
 		/* Responsive CSS */
-		@media (max-width: 1150px) {
+		@media (max-width: 1175px) {
 			h1 {
 				font-size: 6em;
 			}
 		}
 
 		@media (max-width: 1110px) {
-			/* Cover Page */
-			div.intro {
-				margin-top: 20%;
-			}
-
 			h1 {
 				font-size: 6em;
-			}
-
-			img.cover {
-				height: 75vh;
-				margin-top: 55%;
 			}
 		}
 
 		@media (max-width: 1000px) {
-			/* Cover Page */
-			div.intro {
-				margin-top: 25%;
-			}
-
 			h1 {
 				font-size: 5em;
 			}
 		}
 
 		@media (max-width: 975px) {
-			/* Cover Page */
-			img.cover {
-				margin-top: 65%;
-				height: 65vh;
-			}
-
 			/* Contact Page */
 			#my-form-status {
 				float: left;
@@ -336,10 +301,6 @@
 
 		@media (max-width: 768px) {
 			/* Cover Page */
-			div.intro {
-				margin-top: 35%;
-			}
-
 			h1 {
 				font-size: 4.75em;
 			}
@@ -442,26 +403,22 @@
 	<header>
 		<!-- Intro Page -->
 		<div class = "container">
-			<div class = "col-sm-8 intro">
-				<h1>Hi, I'm Kevin</h1>
+			<div class = "col-sm-8">
+				<div class = "intro">
+					<h1>Hi, I'm Kevin</h1>
 
-				<p class = "subtitle">HTML | CSS | JS</p>
-
-				<p class = "cta">
-					<a href = "https://kevinwijaya15.github.io/projects/">View Projects</a> 
-					<span>or</span> 
-					<a href = "https://kevinwijaya15.github.io/about/">Read About Me</a>
-				</p>
+					<p class = "subtitle">HTML | CSS | JS</p>
+				</div>
 			</div>
 
-			<div class = "col-sm-4">
+			<div class = "col-sm-4" style = "text-align: right;">
 				<img src = "index (cover image).webp" class = "cover" alt = "image of kevin wijaya">
 			</div>
 		</div>
 	</header>
 
-	<!-- Projects Title, Subtitle, and CTA Button -->
-	<div class = "container" data-aos="fade-right">
+	<!-- Projects Top Page -->
+	<div class = "container">
 		<div class = "col-sm-10">
 			<h2 style = "margin-top: 75px;">Projects</h2>
 
@@ -480,84 +437,84 @@
 	<!-- Projects Images -->
 	<div class = "container-fluid" style = "padding: 0;">
 		<!-- Piano Tiles Image -->
-		<div class = "col-sm-2 projects-image" data-aos="zoom-in">
+		<div class = "col-sm-2 projects-image">
 			<a href = "https://kevinwijaya15.github.io/piano-tiles/">
 				<img class = "full" src = "https://www.khanacademy.org/computer-programming/piano-tiles-game/4687070145495040/latest.png" alt = "cover of piano tiles project">
 			</a>
 		</div>
 
 		<!-- Rock Paper Scissor AI Image -->
-		<div class = "col-sm-2 projects-image" data-aos="zoom-in">
+		<div class = "col-sm-2 projects-image">
 			<a href = "https://kevinwijaya15.github.io/rock-paper-scissor-ai/">
 				<img class = "full" src = "https://www.khanacademy.org/computer-programming/rock-paper-scissor-ai-game/5638249151676416/latest.png" alt = "cover of rock paper scissor ai project">
 			</a>
 		</div>
 
 		<!-- Spotify Sound Image -->
-		<div class = "col-sm-2 projects-image" data-aos="zoom-in">
+		<div class = "col-sm-2 projects-image">
 			<a href = "https://kevinwijaya15.github.io/spotify-sound/">
 				<img class = "full" class = "projects-content" src = "https://www.khanacademy.org/computer-programming/spotify-sound-app/4818997152268288/latest.png" alt = "cover of spotify sound project">
 			</a>
 		</div>
 
 		<!-- Flappy Bird Image -->
-		<div class = "col-sm-2 projects-image" data-aos="zoom-in">
+		<div class = "col-sm-2 projects-image">
 			<a href = "https://kevinwijaya15.github.io/flappy-bird/">
 				<img class = "full" src = "https://www.khanacademy.org/computer-programming/flappy-bird-game/5569546369318912/latest.png" alt = "cover of flappy bird project">
 			</a>
 		</div>
 
 		<!-- Highway Drivers Image -->
-		<div class = "col-sm-2 projects-image" data-aos="zoom-in">
+		<div class = "col-sm-2 projects-image">
 			<a href = "https://kevinwijaya15.github.io/highway-drivers/">
 				<img class = "full" src = "https://www.khanacademy.org/computer-programming/highway-drivers-game/5628311333453824/latest.png" alt = "cover of highway drivers project">
 			</a>
 		</div>
 
 		<!-- Knife Dash Image -->
-		<div class = "col-sm-2 projects-image" data-aos="zoom-in">
+		<div class = "col-sm-2 projects-image">
 			<a href = "https://kevinwijaya15.github.io/knife-dash/">
 				<img class = "full" src = "https://www.khanacademy.org/computer-programming/knife-dash-game/4508896652640256/latest.png" alt = "cover of knife dash project">
 			</a>
 		</div>
 		
 		<!-- Nature Defined Image -->
-		<div class = "col-sm-2 projects-image" data-aos="zoom-in">
+		<div class = "col-sm-2 projects-image">
 			<a href = "https://kevinwijaya15.github.io/nature-defined/">
 				<img class = "full" src = "https://www.khanacademy.org/computer-programming/nature-defined/4813420246286336/latest.png" alt = "cover of nature defined project">
 			</a>
 		</div>
 
 		<!-- The Final Drug Image -->
-		<div class = "col-sm-2 projects-image" data-aos="zoom-in">
+		<div class = "col-sm-2 projects-image">
 			<a href = "https://kevinwijaya15.github.io/the-final-drug/">
 				<img class = "full" src = "https://www.khanacademy.org/computer-programming/the-final-drug-game/5725797295800320/latest.png" alt = "cover of the final drug project">
 			</a>
 		</div>
 
 		<!-- Ninja Jumper Image -->
-		<div class = "col-sm-2 projects-image" data-aos="zoom-in">
+		<div class = "col-sm-2 projects-image">
 			<a href = "https://kevinwijaya15.github.io/ninja-jumper/">
 				<img class = "full" src = "https://www.khanacademy.org/computer-programming/ninja-jumper-game/4671822928756736/latest.png" alt = "cover of ninja jumper project">
 			</a>
 		</div>
 
 		<!-- Blow Mindeth Image -->
-		<div class = "col-sm-2 projects-image" data-aos="zoom-in">
+		<div class = "col-sm-2 projects-image">
 			<a href = "https://kevinwijaya15.github.io/blow-mindeth/">
 				<img class = "full" src = "https://www.khanacademy.org/computer-programming/blow-mindeth-game/5898057450733568/latest.png" alt = "cover of blow mindeth project">
 			</a>
 		</div>
 
 		<!-- Tic Tac Toe AI Image -->
-		<div class = "col-sm-2 projects-image" data-aos="zoom-in">
+		<div class = "col-sm-2 projects-image">
 			<a href = "https://kevinwijaya15.github.io/tic-tac-toe-ai/">
 				<img class = "full" src = "https://www.khanacademy.org/computer-programming/tic-tac-toe-ai-game/6287874015576064/latest.png" alt = "cover of tic tac toe ai project">
 			</a>
 		</div>
 
 		<!-- Remember Not Image -->
-		<div class = "col-sm-2 projects-image" data-aos="zoom-in">
+		<div class = "col-sm-2 projects-image">
 			<a href = "https://kevinwijaya15.github.io/remember-not/">
 				<img class = "full" src = "https://www.khanacademy.org/computer-programming/remember-not-game/5127917387857920/latest.png" alt = "cover of remember not project">
 			</a>
@@ -567,12 +524,12 @@
 	<!-- What I'm Into Page -->
 	<div class = "container">
 		<!-- Title -->
-		<div class = "col-sm-12" data-aos="fade-right">
+		<div class = "col-sm-12">
 			<h2>What I'm Into</h2>
 		</div>
 
 		<!-- Text-->
-		<div class = "col-sm-6" data-aos="fade-right">
+		<div class = "col-sm-6">
 			<p>
 				I mostly develop games, though I believe that coding has other useful implementations. I have learned HTML, CSS, JavaScript, and Python for more than a year, and finished some <a href = "https://www.khanacademy.org/computing/computer-programming" target = "blank">Computer Programming</a> courses on Khan Academy such as
 
@@ -593,100 +550,15 @@
 		</div>
 
 		<!-- Image -->
-		<div class = "col-sm-6" data-aos="fade-down">
+		<div class = "col-sm-6">
 			<img class = "into" src = "index (into image).webp" alt = "coding screenshot">
-		</div>
-	</div>
-
-	<!-- Blog Page -->
-	<div class = "container">
-		<!-- Title, Subtitle, and CTA Button -->
-		<div class = "col-sm-10" data-aos="fade-right">
-			<h2>Blog</h2>
-
-			<p>
-				I have started writing articles, all of which are published on <a href = "https://kevinwijaya15.medium.com" target = "blank">Medium</a>, to share my stories and improve this site's visibility. Click on one of the titles below to instantly begin reading or visit the <a href = "https://kevinwijaya15.github.io/blog/">blog</a> page to view more articles.
-			</p>
-		</div>
-
-		<!-- Blogs Panels -->
-		<div class = "col-sm-6">
-			<div class = "blog" data-aos="fade-up">
-				<a href = "https://kevinwijaya15.github.io/programming-a-journey-to-the-top/">
-					<img class = "full" src = "blog programming journey image.webp" alt = "programming">
-				</a>
-
-				<div class = "blog-inf">
-					<a href = "https://kevinwijaya15.github.io/programming-a-journey-to-the-top/">
-						<h3 class = "blog">Programming: a Journey to the Top</h3>
-					</a>
-
-					<p class = "blog-date">June 10, 2021 · 3 minute read</p>
-
-					<p>Sharing my programming journey along with some recommendations to those new to coding.</p>
-				</div>
-			</div>
-		</div>
-
-		<div class = "col-sm-6">
-			<div class = "blog" data-aos="fade-up">
-				<a href = "https://kevinwijaya15.github.io/the-logic-behind-flappy-bird/">
-					<img class = "full" src = "blog flappy bird image.webp" alt = "flappy bird">
-				</a>
-
-				<div class = "blog-inf">
-					<a href = "https://kevinwijaya15.github.io/the-logic-behind-flappy-bird/">
-						<h3 class = "blog">The Logic Behind Flappy Bird</h3>
-					</a>
-
-					<p class = "blog-date">June 11, 2021 · 6 minute read</p>
-
-					<p>Everybody knows how to play Flappy Bird, but have you ever wondered about the logic behind the game?</p>
-				</div>
-			</div>
-		</div>
-
-		<div class = "col-sm-6">
-			<div class = "blog" data-aos="fade-up">
-				<a href = "https://kevinwijaya15.github.io/how-i-created-my-own-spotify/">
-					<img class = "full" src = "blog spotify image.webp" alt = "listening to music">
-				</a>
-
-				<div class = "blog-inf">
-					<a href = "https://kevinwijaya15.github.io/how-i-created-my-own-spotify/">
-						<h3 class = "blog">How I Created My Own Spotify</h3>
-					</a>
-
-					<p class = "blog-date">June 20, 2021 · 4 minute read</p>
-
-					<p>My story about getting so inspired by Spotify that I decided to develop it.</p>
-				</div>
-			</div>
-		</div>
-
-		<div class = "col-sm-6">
-			<div class = "blog" data-aos="fade-up">
-				<a href = "https://kevinwijaya15.github.io/free-web-development-tools-you-dont-want-to-miss/">
-					<img class = "full" src = "blog web dev tools image.webp" alt = "website development">
-				</a>
-
-				<div class = "blog-inf">
-					<a href = "https://kevinwijaya15.github.io/free-web-development-tools-you-dont-want-to-miss/">
-						<h3 class = "blog">Free Web Development Tools You Don’t Want to Miss</h3>
-					</a>
-
-					<p class = "blog-date">June 21, 2021 · 3 minute read</p>
-
-					<p>What’s better than tools that are free and easily accessible? Nothing, I suppose.</p>
-				</div>
-			</div>
 		</div>
 	</div>
 
 	<!-- Related Certifications Page -->
 	<div class = "container">
 		<!-- Title and Subtitle -->
-		<div class = "col-sm-10" data-aos="fade-right">
+		<div class = "col-sm-10">
 			<h2>Related Certifications</h2>
 
 			<p style = "margin-bottom: 0;">
@@ -695,7 +567,7 @@
 		</div>
 
 		<!-- Carousel -->
-		<div class = "col-sm-10 col-sm-offset-1" data-aos="fade-down" style = "text-align: center; height: 550px;">
+		<div class = "col-sm-10 col-sm-offset-1" style = "text-align: center; height: 500px;">
 			<div id="related-certification" class="carousel slide carousel-fade" data-ride="carousel">
 			  	<!-- Wrapper for slides -->
 			  	<div class = "col-sm-8 col-sm-offset-2">
@@ -743,11 +615,96 @@
 		</div>
 	</div>
 
+	<!-- Blog Page -->
+	<div class = "container">
+		<!-- Title, Subtitle, and CTA Button -->
+		<div class = "col-sm-10">
+			<h2>Blog</h2>
+
+			<p>
+				In order to share my stories and improve this site's visibility, I started writing articles, all of which are also published on <a href = "https://kevinwijaya15.medium.com" target = "blank">Medium</a>. Click on one of the titles below to instantly begin reading or visit the <a href = "https://kevinwijaya15.github.io/blog/">blog</a> page to view more articles.
+			</p>
+		</div>
+
+		<!-- Blogs Panels -->
+		<div class = "col-sm-6">
+			<div class = "blog">
+				<a href = "https://kevinwijaya15.github.io/programming-a-journey-to-the-top/">
+					<img class = "full" src = "blog programming journey image.webp" alt = "programming">
+				</a>
+
+				<div class = "blog-inf">
+					<a href = "https://kevinwijaya15.github.io/programming-a-journey-to-the-top/">
+						<h3 class = "blog">Programming: a Journey to the Top</h3>
+					</a>
+
+					<p class = "blog-date">June 10, 2021 · 3 minute read</p>
+
+					<p>Sharing my programming journey along with some recommendations to those new to coding.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class = "col-sm-6">
+			<div class = "blog">
+				<a href = "https://kevinwijaya15.github.io/the-logic-behind-flappy-bird/">
+					<img class = "full" src = "blog flappy bird image.webp" alt = "flappy bird">
+				</a>
+
+				<div class = "blog-inf">
+					<a href = "https://kevinwijaya15.github.io/the-logic-behind-flappy-bird/">
+						<h3 class = "blog">The Logic Behind Flappy Bird</h3>
+					</a>
+
+					<p class = "blog-date">June 11, 2021 · 6 minute read</p>
+
+					<p>Everybody knows how to play Flappy Bird, but have you ever wondered about the logic behind the game?</p>
+				</div>
+			</div>
+		</div>
+
+		<div class = "col-sm-6">
+			<div class = "blog">
+				<a href = "https://kevinwijaya15.github.io/how-i-created-my-own-spotify/">
+					<img class = "full" src = "blog spotify image.webp" alt = "listening to music">
+				</a>
+
+				<div class = "blog-inf">
+					<a href = "https://kevinwijaya15.github.io/how-i-created-my-own-spotify/">
+						<h3 class = "blog">How I Created My Own Spotify</h3>
+					</a>
+
+					<p class = "blog-date">June 20, 2021 · 4 minute read</p>
+
+					<p>My story about getting so inspired by Spotify that I decided to develop it.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class = "col-sm-6">
+			<div class = "blog">
+				<a href = "https://kevinwijaya15.github.io/free-web-development-tools-you-dont-want-to-miss/">
+					<img class = "full" src = "blog web dev tools image.webp" alt = "website development">
+				</a>
+
+				<div class = "blog-inf">
+					<a href = "https://kevinwijaya15.github.io/free-web-development-tools-you-dont-want-to-miss/">
+						<h3 class = "blog">Free Web Development Tools You Don’t Want to Miss</h3>
+					</a>
+
+					<p class = "blog-date">June 21, 2021 · 3 minute read</p>
+
+					<p>What’s better than tools that are free and easily accessible? Nothing, I suppose.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- What They Say Page -->
 	<div class = "container">
 		<!-- Title -->
-		<div class = "col-sm-10" data-aos="fade-right">
-			<h2>What They Say</h2>
+		<div class = "col-sm-10">
+			<h2 style = "margin-top: 125px;">What They Say</h2>
 
 			<p>
 				The word <em>they</em> refer to programmers from the Khan Academy Community who share their frank opinions on my projects. See their testimonies below.
@@ -755,7 +712,7 @@
 		</div>
 
 		<!-- Testimonial Carousel -->
-		<div class = "col-sm-10 col-sm-offset-1" data-aos="fade-down" style = "text-align: center;">
+		<div class = "col-sm-10 col-sm-offset-1" style = "text-align: center;">
 			<div id="what-they-say" class="carousel slide" data-ride="carousel">
 				<img src = "https://png.pngtree.com/svg/20170911/61ae53399c.png" alt = "#" width = "35" style = "margin-bottom: 25px;">
 
@@ -841,15 +798,15 @@
 
 	<!-- Contact Me Page -->
 	<div class = "container" id = "contact-me">
-		<div class = "col-sm-10" data-aos="fade-right">
-			<h2>Contact Me</h2>
+		<div class = "col-sm-10">
+			<h2 style = "margin-top: 150px;">Contact Me</h2>
 
 			<p>
 				I'm very interested in hearing from you. Hence, feel free to drop me a line by filling the form below if you have any request, question, idea, or feedback.
 			</p>
 		</div>
 
-		<div class = "col-sm-8 col-sm-offset-2" data-aos="fade-down">
+		<div class = "col-sm-8 col-sm-offset-2">
 			<form action = "https://formspree.io/f/mjvjrwbj" method = "POST" id = "my-form">
 				<!-- First Name and Last Name Panel -->
 				<div class = "form-row">
@@ -996,11 +953,6 @@
 
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-	<!-- Animate on Scroll Script -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    
- 	<script src = "aos.js"></script>
 
 	<!-- Contact Form Status Script -->
 	<script type = "text/javascript" src = "index (form).js"></script>
