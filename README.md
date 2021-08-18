@@ -1,4 +1,4 @@
-# ABOUT: KevinWijaya15.github.io
+# ABOUT: kevinwijaya15.github.io
 
 This website is developed for personal use such as hosting my projects (games, simulations, websites, and others), sharing my stories, and showcasing my achievements.
 
