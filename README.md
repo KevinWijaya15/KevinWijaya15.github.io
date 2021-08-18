@@ -6,4 +6,4 @@ Links to my social media accounts such as Instagram, GitHub, and Khan Academy ca
 
 # UPDATE: www.kevinwijaya.rf.gd
 
-I have decided to change this website's subdomain name from https://kevinwijaya15.github.io to a fresher www.kevinwijaya.rf.gd (18/8/2021).
+I have decided to change this website's domain name from https://kevinwijaya15.github.io to a fresher www.kevinwijaya.rf.gd (18/8/2021).
