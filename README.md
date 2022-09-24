@@ -1,9 +1,7 @@
 # ABOUT: kevinwijaya15.github.io
 
-This website is developed for personal use such as hosting my projects (games, simulations, websites, and others), sharing my stories, and showcasing my achievements.
+This webpage is developed as a demonstration of website hosting with Github Pages on the Web Development 101 Series.
 
-Links to my social media accounts such as Instagram, GitHub, and Khan Academy can be found on both the header and footer of this website.
+To view the code, open the index.html file above.
 
-# UPDATE: www.kevinwijaya.rf.gd
-
-I have decided to change this website's domain name from https://kevinwijaya15.github.io to a fresher www.kevinwijaya.rf.gd (18/8/2021).
+For more information, feel free to contact me via Schoolhouse or Slack.
